@@ -1,12 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { Text, TextInput, View, TouchableOpacity, ScrollView } from 'react-native';
-import styles from './LoginStyle'; 
+import styles from '../Login/LoginStyle'; 
 import { useNavigation } from '@react-navigation/native';
 
-export default function Login() {
+export default function Register() {
+
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [passwordOne, setPasswordOne] = useState("");
+    const [passwordTwo, setPasswordTwo] = useState("");
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
 
@@ -16,9 +18,17 @@ export default function Login() {
         e.preventDefault();
         setLoading(true);
         try {
-            setEmail("");
-            setPassword("");
-            navigation.navigate("Home");
+            if (email.length > 0 && passwordOne.length > 0) {
+                if (passwordOne == passwordTwo) {
+                    navigation.navigate("Home");
+                }
+                else {
+                    setError("Passwords must be the same");
+                }
+            }
+            else {
+                setError("All fields must be full");
+            }
             
         } catch (error) {
           setError(error.message);
@@ -26,20 +36,9 @@ export default function Login() {
         setLoading(false);
       };
 
-      const handleRegister = async(e) => {
-        try {
-            navigation.navigate("Register");
-        }
-        catch (error) {
-            setError(error.mesage);
-        }
-      }
-    
-
     return (
         <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps='handled' keyboardDismissMode='on-drag'>
-            <Text style={styles.header}>Welcome to Backpacks for the Street!</Text>
-            <Text style={styles.header}>Login</Text>
+            <Text style={styles.header}>Register New Account</Text>
             <View style={styles.inputView}>
                 <TextInput
                     style={styles.textInput}
@@ -56,32 +55,31 @@ export default function Login() {
                     placeholder="Password..."
                     placeholderTextColor="#003f5c"
                     secureTextEntry={true}
-                    onChangeText={(password) => setPassword(password)}
-                    value={password}
+                    onChangeText={(password) => setPasswordOne(password)}
+                    value={passwordOne}
+                />
+            </View>
+            <View style={styles.inputView}>
+                <TextInput
+                    style={styles.textInput}
+                    placeholder="Confirm Password..."
+                    placeholderTextColor="#003f5c"
+                    secureTextEntry={true}
+                    onChangeText={(password) => setPasswordTwo(password)}
+                    value={passwordTwo}
                 />
             </View>
 
-            <View style={styles.textClicks}>
-                <TouchableOpacity style={styles.forgotBtn}>
-                    <Text style={styles.linksText}>Forgot Password?</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.forgotBtn}
-                    onPress={handleRegister}>
-
-                    <Text style={styles.linksText}>Register new account?</Text>
-                </TouchableOpacity>
-            </View>
-
             <TouchableOpacity 
-                style={styles.loginBtn}
+                style={styles.loginBtn} 
                 disabled={loading} 
                 onPress={handleSubmit}>
 
-                <Text style={styles.loginText}>{loading ? "Loading..." : "LOGIN"}</Text>
+                <Text style={styles.loginText}>{loading ? "Loading..." : "Register"}</Text>
             </TouchableOpacity>
             {error && <Text style={styles.errorText}>{error}</Text>}
 
-        <StatusBar style='auto'/>
+            <StatusBar style='auto'/>
         </ScrollView>
     );
 }
