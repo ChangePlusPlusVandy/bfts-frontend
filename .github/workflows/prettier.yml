@@ -1,0 +1,24 @@
+name: Linter
+on:
+    pull_request:
+    push:
+        branches:
+            - main
+jobs:
+    prettier:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+              with:
+                  ref: ${{ github.head_ref }}
+            - uses: actions/setup-node@v2
+              with:
+                  node-version: '16.x'
+            - run: npm ci
+            - run: npm run format
+            - name: Commit changes
+              uses: stefanzweifel/git-auto-commit-action@v4
+              with:
+                  commit_message: Run Prettier
+                  branch: ${{ github.head_ref }}
