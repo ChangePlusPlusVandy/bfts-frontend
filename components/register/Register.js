@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { Text, TextInput, View, TouchableOpacity, ScrollView } from 'react-native';
-import styles from '../Login/LoginStyle'; 
+import styles from '../login/LoginStyle'; 
 import { useNavigation } from '@react-navigation/native';
 
 export default function Register() {
