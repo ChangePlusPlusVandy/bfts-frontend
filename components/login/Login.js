@@ -1,8 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { Text, TextInput, View, TouchableOpacity, ScrollView } from 'react-native';
-import styles from './LoginStyle'; 
+import { Text, TextInput, View, TouchableOpacity, Image, KeyboardAvoidingView, Button } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import logo from '../../assets/logo.png';
+import loginStyles from './LoginStyle';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { useHeaderHeight } from "@react-navigation/elements";
+import { BFTS_BLUE } from '../../constants';
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -34,54 +37,37 @@ export default function Login() {
             setError(error.mesage);
         }
       }
+
+    const height = useHeaderHeight();
     
 
     return (
-        <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps='handled' keyboardDismissMode='on-drag'>
-            <Text style={styles.header}>Welcome to Backpacks for the Street!</Text>
-            <Text style={styles.header}>Login</Text>
-            <View style={styles.inputView}>
-                <TextInput
-                    style={styles.textInput}
-                    placeholder="Email..."
-                    placeholderTextColor="#003f5c"
-                    onChangeText={(email) => setEmail(email)}
-                    value={email}
-                />
-            </View>
+        
+        <KeyboardAvoidingView style={loginStyles.container} behavior='padding'>
+            <View style={{justifyContent: 'flex-end', padding: 24, alignItems: 'center', marginTop: 75}}>
+                <Image source={logo} style={loginStyles.logo}/>
+                <View style={loginStyles.inputField}>
+                    <Ionicons name='mail-outline' size={40} color='black' />
+                    <TextInput placeholder='Email' style={{ padding: 10, width: 270 }} onChangeText={(text) => setEmail(text)}/>
+                </View>
 
-            <View style={styles.inputView}>
-                <TextInput
-                    style={styles.textInput}
-                    placeholder="Password..."
-                    placeholderTextColor="#003f5c"
-                    secureTextEntry={true}
-                    onChangeText={(password) => setPassword(password)}
-                    value={password}
-                />
-            </View>
+                <View style={loginStyles.inputField}>
+                    <Ionicons name='lock-closed-outline' size={40} color='black' />
+                    <TextInput placeholder='Password' style={{ padding: 10, width: 270 }} onChangeText={(text) => setPassword(text)}/>
+                </View>
 
-            <View style={styles.textClicks}>
-                <TouchableOpacity style={styles.forgotBtn}>
-                    <Text style={styles.linksText}>Forgot Password?</Text>
+                <TouchableOpacity style={loginStyles.loginBtn}>
+                    <Text style={loginStyles.loginText}>Login</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.forgotBtn}
-                    onPress={handleRegister}>
-
-                    <Text style={styles.linksText}>Register new account?</Text>
-                </TouchableOpacity>
+                <View style={{flexDirection: 'row', marginTop: 2}}>
+                    <Text>Don't have an account? </Text>
+                    <TouchableOpacity>
+                        <Text style={{color: BFTS_BLUE, textDecorationLine: 'underline'}}>Register</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={{ flex : 1 }} />
             </View>
+        </KeyboardAvoidingView>
 
-            <TouchableOpacity 
-                style={styles.loginBtn}
-                disabled={loading} 
-                onPress={handleSubmit}>
-
-                <Text style={styles.loginText}>{loading ? "Loading..." : "LOGIN"}</Text>
-            </TouchableOpacity>
-            {error && <Text style={styles.errorText}>{error}</Text>}
-
-        <StatusBar style='auto'/>
-        </ScrollView>
     );
 }
