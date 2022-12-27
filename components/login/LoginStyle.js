@@ -1,40 +1,21 @@
 import { StyleSheet } from 'react-native';
+import { BFTS_BLUE, BFTS_WHITE } from '../../constants';
 
-export default StyleSheet.create({
+const loginStyles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: '#fff',
+		backgroundColor: BFTS_WHITE,
 		alignItems: 'center',
 		justifyContent: 'center',
-	},
-	inputView: {
-		borderRadius: 10,
-		borderWidth: 1,
-		width: '70%',
-		height: 45,
-		marginBottom: 20,
-	},
-	textInput: {
-		height: 50,
-		flex: 1,
-		padding: 10,
-	},
-	textClicks: {
-		height: 30,
-		marginBottom: 30,
-		alignItems: 'center',
-	},
-	forgotBtn: {
-		marginBottom: 10,
 	},
 	loginBtn: {
-		width: '80%',
-		borderRadius: 25,
-		height: 50,
+		width: 250,
+		height: 75,
+		backgroundColor: BFTS_BLUE,
+		borderRadius: 15,
 		alignItems: 'center',
 		justifyContent: 'center',
-		marginTop: 40,
-		backgroundColor: '#2874fc',
+		marginTop: 35,
 	},
 	errorText: {
 		color: 'red',
@@ -48,10 +29,29 @@ export default StyleSheet.create({
 	},
 	loginText: {
 		fontSize: 20,
-		textDecorationLine: 'underline',
+		//fontFamily: "Montserrat_900Bold", TODO: Get this font working
+		color: BFTS_WHITE,
+		fontWeight: 'bold',
 	},
 	linksText: {
 		textDecorationLine: 'underline',
 		fontSize: 15,
 	},
+	logo: {
+		width: 200,
+		height: 200,
+		resizeMode: 'contain',
+		marginBottom: 150,
+	},
+	inputField: {
+		flexDirection: 'row',
+		width: 315,
+		borderColor: 'black',
+		borderWidth: 3,
+		borderRadius: 15,
+		padding: 10,
+		marginBottom: 7,
+	},
 });
+
+export default loginStyles;
