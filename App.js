@@ -18,13 +18,23 @@ export default function App() {
 	return (
 		<NavigationContainer>
 			<Stack.Navigator>
-				<Stack.Screen name="Landing" title="Landing" component={Landing} options={{ headerShown: false }} />
-				<Stack.Screen name="Login" title="Login" component={Login} options={{ headerShown: false }} />
+				<Stack.Screen 
+					name="Landing" 
+					title="Landing" 
+					component={Landing} 
+					options={{ headerShown: false, gestureEnabled: false }} 
+				/>
+				<Stack.Screen 
+					name="Login" 
+					title="Login" 
+					component={Login} 
+					options={{ headerShown: false, gestureEnabled: false  }} 
+				/>
 				<Stack.Screen
 					name="Register"
 					title="Register"
 					component={Register}
-					options={{ headerShown: true, gestureEnabled: false }}
+					options={{ headerShown: false, gestureEnabled: false }}
 				/>
 				<Stack.Screen
 					name="Home"
