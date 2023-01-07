@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Text, TextInput, View, TouchableOpacity, ScrollView } from 'react-native';
 import styles from '../login/LoginStyle'; 
 import { useNavigation } from '@react-navigation/native';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 
 export default function Register() {
 
@@ -13,6 +14,7 @@ export default function Register() {
     const [loading, setLoading] = useState(false);
 
     const navigation = useNavigation();
+    const auth = getAuth();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -20,7 +22,8 @@ export default function Register() {
         try {
             if (email.length > 0 && passwordOne.length > 0) {
                 if (passwordOne == passwordTwo) {
-                    navigation.navigate("Home");
+                    await createUserWithEmailAndPassword(auth, email, passwordOne);
+                    navigation.navigate("Login");
                 }
                 else {
                     setError("Passwords must be the same");

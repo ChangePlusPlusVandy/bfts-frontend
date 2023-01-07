@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { Text, TextInput, View, TouchableOpacity, ScrollView } from 'react-native';
 import styles from './LoginStyle'; 
 import { useNavigation } from '@react-navigation/native';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { app } from '../../firebaseConfig';
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -11,13 +13,13 @@ export default function Login() {
     const [loading, setLoading] = useState(false);
 
     const navigation = useNavigation();
+    const auth = getAuth(app);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
         try {
-            setEmail("");
-            setPassword("");
+            await signInWithEmailAndPassword(auth, email, password);
             navigation.navigate("Home");
             
         } catch (error) {
