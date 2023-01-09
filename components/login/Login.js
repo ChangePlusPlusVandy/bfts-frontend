@@ -4,8 +4,9 @@ import { useNavigation } from '@react-navigation/native';
 import logo from '../../assets/logo.png';
 import loginStyles from './LoginStyle';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { useHeaderHeight } from '@react-navigation/elements';
 import { BFTS_BLUE } from '../../constants';
+import { auth } from '../../firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 export default function Login() {
 	const [email, setEmail] = useState('');
@@ -16,11 +17,12 @@ export default function Login() {
 	const navigation = useNavigation();
 
 	const handleSubmit = async e => {
-		e.preventDefault();
-		setLoading(true);
+		if (email.length === 0 || password.length === 0) {
+			alert("Please fill out all fields.");
+			return;
+		}
 		try {
-			setEmail('');
-			setPassword('');
+			signInWithEmailAndPassword(auth, email, password);
 			navigation.navigate('Home');
 		} catch (error) {
 			setError(error.message);
@@ -28,15 +30,7 @@ export default function Login() {
 		setLoading(false);
 	};
 
-	const handleRegister = async e => {
-		try {
-			navigation.navigate('Register');
-		} catch (error) {
-			setError(error.mesage);
-		}
-	};
 
-	const height = useHeaderHeight();
 
 	return (
 		<KeyboardAvoidingView style={loginStyles.container} behavior="padding">
@@ -60,12 +54,12 @@ export default function Login() {
 					/>
 				</View>
 
-				<TouchableOpacity style={loginStyles.loginBtn}>
+				<TouchableOpacity style={loginStyles.loginBtn} onPress={() => handleSubmit()}>
 					<Text style={loginStyles.loginText}>Login</Text>
 				</TouchableOpacity>
 				<View style={{ flexDirection: 'row', marginTop: 2 }}>
 					<Text>Don't have an account? </Text>
-					<TouchableOpacity>
+					<TouchableOpacity onPress={() => navigation.navigate("Register")}>
 						<Text style={{ color: BFTS_BLUE, textDecorationLine: 'underline' }}>Register</Text>
 					</TouchableOpacity>
 				</View>
