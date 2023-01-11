@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './components/login/Login';
 import Home from './components/home/Home';
 import Register from './components/register/Register';
+import AddClient from './components/addClient/AddClient';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +28,12 @@ export default function App() {
           name="Home"
           title="Home"
           component={Home}
+          options={{headerShown: false, gestureEnabled: false}}
+        />
+        <Stack.Screen
+          name="AddClient"
+          title="AddClient"
+          component={AddClient}
           options={{headerShown: false, gestureEnabled: false}}
         />
       </Stack.Navigator>
