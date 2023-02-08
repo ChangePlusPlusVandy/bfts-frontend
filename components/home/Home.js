@@ -20,7 +20,7 @@ const Home = () => {
 					} else if (route.name === 'Community') {
 						icon = require('../../assets/person.png');
 					}
-					else if (route.name === ' ') {
+					else if (route.name === 'Plus') {
 						icon = require('../../assets/plus.png');
 						viewStyle={
 							position: 'absolute',
@@ -49,7 +49,7 @@ const Home = () => {
 
 			})}>
 			<Tab.Screen name="Main" component={Main} options={{ headerShown: false }} />
-			<Tab.Screen name=" " component={Landing} options={{ headerShown: false }} />
+			<Tab.Screen name="Plus" component={Community} options={{ headerShown: false }} />
 			<Tab.Screen name="Community" component={Community} options={{ headerShown: false }} />
 		</Tab.Navigator>
 	);

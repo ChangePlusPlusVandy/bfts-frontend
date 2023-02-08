@@ -21,9 +21,6 @@ export default function PostFooter({post}) {
     const unlikedURL = '../../assets/unliked_icon.jpg';
     const commentURL = '../../assets/comment.png';
 
-    // const likedURL = 'https://img.icons8.com/ios7/12x/comments.png';
-    // const commentURL = "https://img.icons8.com/ios7/12x/comments.png";
-
     return (
         <View>
             <View style={{marginHorizontal: 15, marginTop: 10}}>
