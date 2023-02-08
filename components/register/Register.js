@@ -18,17 +18,17 @@ export default function Register() {
 	const navigation = useNavigation();
 
 	const handleSubmit = async e => {
-		console.log("Submitting");
+		console.log('Submitting');
 		if (email.length === 0 || passwordOne.length === 0) {
-			alert("Please fill out all fields.");
+			alert('Please fill out all fields.');
 			return;
 		}
 
 		try {
 			await createUserWithEmailAndPassword(auth, email, passwordOne);
-			navigation.navigate("Home")
+			navigation.navigate('Home');
 		} catch (error) {
-			alert("Failed to create user.");
+			alert('Failed to create user.');
 		}
 	};
 
@@ -58,15 +58,15 @@ export default function Register() {
 					<Text style={loginStyles.loginText}>Register</Text>
 				</TouchableOpacity>
 				<View style={{ flexDirection: 'row', marginTop: 2 }}>
-					<Text>Already have an account?  </Text>
-					<TouchableOpacity onPress={() => navigation.navigate("Login")}>
+					<Text>Already have an account? </Text>
+					<TouchableOpacity onPress={() => navigation.navigate('Login')}>
 						<Text style={{ color: BFTS_BLUE, textDecorationLine: 'underline' }}>Login</Text>
 					</TouchableOpacity>
 				</View>
 				<View style={{ flex: 1 }} />
 			</View>
 		</KeyboardAvoidingView>
-		
+
 		// <ScrollView
 		// 	contentContainerStyle={styles.container}
 		// 	keyboardShouldPersistTaps="handled"

@@ -19,10 +19,9 @@ const Home = () => {
 						icon = require('../../assets/house.png');
 					} else if (route.name === 'Community') {
 						icon = require('../../assets/person.png');
-					}
-					else if (route.name === 'Plus') {
+					} else if (route.name === 'Plus') {
 						icon = require('../../assets/plus.png');
-						viewStyle={
+						viewStyle = {
 							position: 'absolute',
 							bottom: 0, // space from bottombar
 							height: 40,
@@ -46,7 +45,6 @@ const Home = () => {
 				tabBarActiveTintColor: 'blue',
 				tabBarInactiveTintColor: 'gray',
 				tabBarShowLabel: false,
-
 			})}>
 			<Tab.Screen name="Main" component={Main} options={{ headerShown: false }} />
 			<Tab.Screen name="Plus" component={Community} options={{ headerShown: false }} />
