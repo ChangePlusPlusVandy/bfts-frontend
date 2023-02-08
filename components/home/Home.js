@@ -1,8 +1,9 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Main from '../main/Main';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Community from '../community/Community';
+import Landing from '../landing/Landing';
 
 const Tab = createBottomTabNavigator();
 
@@ -11,19 +12,44 @@ const Home = () => {
 		<Tab.Navigator
 			screenOptions={({ route }) => ({
 				tabBarIcon: ({ focused, color, size }) => {
-					let iconName;
+					var icon = require('../../assets/person.png');
+					let viewStyle, imgStyle;
 
 					if (route.name === 'Main') {
-						iconName = 'home';
+						icon = require('../../assets/house.png');
 					} else if (route.name === 'Community') {
-						iconName = 'information-circle';
+						icon = require('../../assets/person.png');
 					}
-					return <Ionicons name={iconName} size={size} color={color} />;
+					else if (route.name === ' ') {
+						icon = require('../../assets/plus.png');
+						viewStyle={
+							position: 'absolute',
+							bottom: 0, // space from bottombar
+							height: 40,
+							width: 40,
+							borderRadius: 40,
+							justifyContent: 'center',
+							alignItems: 'center',
+						};
+						imgStyle = {
+							width: 70,
+							height: 70,
+							alignContent: 'center',
+						};
+					}
+					return (
+						<View style={viewStyle}>
+							<Image source={icon} size={size} color={color} tintColor={color} style={imgStyle} />
+						</View>
+					);
 				},
 				tabBarActiveTintColor: 'blue',
 				tabBarInactiveTintColor: 'gray',
+				tabBarShowLabel: false,
+
 			})}>
 			<Tab.Screen name="Main" component={Main} options={{ headerShown: false }} />
+			<Tab.Screen name=" " component={Landing} options={{ headerShown: false }} />
 			<Tab.Screen name="Community" component={Community} options={{ headerShown: false }} />
 		</Tab.Navigator>
 	);
