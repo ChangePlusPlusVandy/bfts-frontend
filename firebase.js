@@ -5,16 +5,18 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 import 'firebase/auth';
 import { getAuth } from "firebase/auth";
+import {API_KEY, AUTH_DOMAIN, PROJECT_ID, STORAGE_BUCKET, MESSAGING_SENDER_ID, FIREBASE_APP_ID} from '@env';
+
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
   // Insert secrets here
-  apiKey: "AIzaSyBbnwgqvj0WE7s5ldM7zzv_4IYGKk3YxQs",
-  authDomain: "bfts-e5301.firebaseapp.com",
-  projectId: "bfts-e5301",
-  storageBucket: "bfts-e5301.appspot.com",
-  messagingSenderId: "682538519243",
-  appId: "1:682538519243:web:385c232049722288f6a94e"
+  apiKey: API_KEY,
+  authDomain: AUTH_DOMAIN,
+  projectId: PROJECT_ID,
+  storageBucket: STORAGE_BUCKET,
+  messagingSenderId: MESSAGING_SENDER_ID,
+  appId: FIREBASE_APP_ID
 };
 
 // Initialize Firebase
