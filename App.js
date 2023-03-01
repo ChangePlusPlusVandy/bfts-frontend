@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './components/login/Login';
 import Home from './components/home/Home';
 import Register from './components/register/Register';
+import Info from './components/info/Info';
 import Landing from './components/landing/Landing';
 import { useFonts, Montserrat_900Black, Montserrat_700Bold } from '@expo-google-fonts/montserrat';
 
@@ -40,6 +41,12 @@ export default function App() {
 					name="Home"
 					title="Home"
 					component={Home}
+					options={{ headerShown: false, gestureEnabled: false }}
+				/>
+				<Stack.Screen
+					name="Info"
+					title="Info"
+					component={Info}
 					options={{ headerShown: false, gestureEnabled: false }}
 				/>
 			</Stack.Navigator>
