@@ -1,16 +1,32 @@
-import React from 'react';
-import { Text, View, TouchableOpacity, Image } from 'react-native';
+import { React, useEffect, useState } from 'react';
+import { Text, View, TouchableOpacity, Image, Button } from 'react-native';
 import logo from '../../assets/logo.png';
 import { BFTS_BLUE, BFTS_WHITE } from '../../constants';
 import landingStyles from './LandingStyles';
 import { useNavigation } from '@react-navigation/native';
+import * as SMS from 'expo-sms';
 
 export default function Landing() {
 	const navigation = useNavigation();
+	const [isAvailable, setIsAvailable] = useState(false);
+
+	useEffect(() => {
+		async function checkAvailability() {
+			const isSmsAvailable = await SMS.isAvailableAsync();
+			setIsAvailable(isSmsAvailable);
+		}
+		checkAvailability();
+	}, []);
+
+	const sendSms = async () => {
+		await SMS.sendSMSAsync(['6157239815'], 'Send Help');
+	};
 
 	return (
 		<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: BFTS_WHITE }}>
 			<Image source={logo} style={landingStyles.logo} />
+
+			{isAvailable ? <Button title="Send SMS" onPress={sendSms} /> : <Text>No SMS</Text>}
 
 			<TouchableOpacity
 				style={{
