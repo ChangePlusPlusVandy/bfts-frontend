@@ -9,12 +9,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-	apiKey: 'AIzaSyBbnwgqvj0WE7s5ldM7zzv_4IYGKk3YxQs',
-	authDomain: 'bfts-e5301.firebaseapp.com',
-	projectId: 'bfts-e5301',
-	storageBucket: 'bfts-e5301.appspot.com',
-	messagingSenderId: '682538519243',
-	appId: '1:682538519243:web:385c232049722288f6a94e',
+	// Insert secrets here
 };
 
 // Initialize Firebase
