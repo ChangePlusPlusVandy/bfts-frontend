@@ -45,29 +45,38 @@ const Home = () => {
 						</View>
 					);
 				},
-				tabBarActiveTintColor: {BFTS_BLUE},
+				tabBarActiveTintColor: { BFTS_BLUE },
 				tabBarInactiveTintColor: 'gray',
 				tabBarShowLabel: false,
 			})}>
-			<Tab.Screen name="Main" component={Main} options={{ 
-				headerTitle: () => <Header name="main"/>,
-				headerLeft: () => 
-					<View>
-						<TouchableOpacity style={{marginLeft: 15}}>
-							<Ionicons name="images-outline" size={25} color={BFTS_BLUE}></Ionicons>
-						</TouchableOpacity>
-					</View>
-				
-			}} />
-			<Tab.Screen name="Community" component={Community} options={{ 
-				headerTitle: () => <Header name="community"/>,
-				headerLeft: () => 
-					<View>
-						<TouchableOpacity style={{marginLeft: 15}}>
-							<Ionicons name="chevron-back-outline" size={25} color={BFTS_BLUE}></Ionicons>
-						</TouchableOpacity>
-					</View>
-			}} />
+			<Tab.Screen
+				name="Main"
+				component={Main}
+				options={{
+					headerTitle: () => <Header name="main" />,
+					headerLeft: () => (
+						<View>
+							<TouchableOpacity style={{ marginLeft: 15 }}>
+								<Ionicons name="images-outline" size={25} color={BFTS_BLUE}></Ionicons>
+							</TouchableOpacity>
+						</View>
+					),
+				}}
+			/>
+			<Tab.Screen
+				name="Community"
+				component={Community}
+				options={{
+					headerTitle: () => <Header name="community" />,
+					headerLeft: () => (
+						<View>
+							<TouchableOpacity style={{ marginLeft: 15 }}>
+								<Ionicons name="chevron-back-outline" size={25} color={BFTS_BLUE}></Ionicons>
+							</TouchableOpacity>
+						</View>
+					),
+				}}
+			/>
 		</Tab.Navigator>
 	);
 };
