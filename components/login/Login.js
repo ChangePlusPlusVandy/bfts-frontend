@@ -18,7 +18,7 @@ export default function Login() {
 
 	const handleSubmit = async e => {
 		if (email.length === 0 || password.length === 0) {
-			alert("Please fill out all fields.");
+			alert('Please fill out all fields.');
 			return;
 		}
 		try {
@@ -29,8 +29,6 @@ export default function Login() {
 		}
 		setLoading(false);
 	};
-
-
 
 	return (
 		<KeyboardAvoidingView style={loginStyles.container} behavior="padding">
@@ -59,7 +57,7 @@ export default function Login() {
 				</TouchableOpacity>
 				<View style={{ flexDirection: 'row', marginTop: 2 }}>
 					<Text>Don't have an account? </Text>
-					<TouchableOpacity onPress={() => navigation.navigate("Register")}>
+					<TouchableOpacity onPress={() => navigation.navigate('Register')}>
 						<Text style={{ color: BFTS_BLUE, textDecorationLine: 'underline' }}>Register</Text>
 					</TouchableOpacity>
 				</View>

@@ -6,6 +6,7 @@ import Community from '../community/Community';
 import Header from '../header/Header';
 import { useNavigation } from '@react-navigation/native';
 import { BFTS_BLUE } from '../../constants';
+import Landing from '../landing/Landing';
 
 const Tab = createBottomTabNavigator();
 
@@ -14,17 +15,39 @@ const Home = () => {
 		<Tab.Navigator
 			screenOptions={({ route }) => ({
 				tabBarIcon: ({ focused, color, size }) => {
-					let iconName;
+					var icon = require('../../assets/person.png');
+					let viewStyle, imgStyle;
 
 					if (route.name === 'Main') {
-						iconName = 'home';
+						icon = require('../../assets/house.png');
 					} else if (route.name === 'Community') {
-						iconName = 'information-circle';
+						icon = require('../../assets/person.png');
+					} else if (route.name === 'Plus') {
+						icon = require('../../assets/plus.png');
+						viewStyle = {
+							position: 'absolute',
+							bottom: 0, // space from bottombar
+							height: 40,
+							width: 40,
+							borderRadius: 40,
+							justifyContent: 'center',
+							alignItems: 'center',
+						};
+						imgStyle = {
+							width: 70,
+							height: 70,
+							alignContent: 'center',
+						};
 					}
-					return <Ionicons name={iconName} size={size} color={color} />;
+					return (
+						<View style={viewStyle}>
+							<Image source={icon} size={size} color={color} tintColor={color} style={imgStyle} />
+						</View>
+					);
 				},
 				tabBarActiveTintColor: {BFTS_BLUE},
 				tabBarInactiveTintColor: 'gray',
+				tabBarShowLabel: false,
 			})}>
 			<Tab.Screen name="Main" component={Main} options={{ 
 				headerTitle: () => <Header name="main"/>,
