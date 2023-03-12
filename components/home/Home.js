@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Main from '../main/Main';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -7,10 +7,93 @@ import Header from '../header/Header';
 import { useNavigation } from '@react-navigation/native';
 import { BFTS_BLUE } from '../../constants';
 import Landing from '../landing/Landing';
+import Profile from '../profile/Profile';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import ResourceDisplay from "../resources/ResourceDisplay"
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
+
+const MainNav = ({navigation}) => {
+
+
+	return (
+		<Stack.Navigator>
+			<Stack.Screen
+				name="Resources"
+				component={ResourceDisplay}
+				options={{
+					headerTitle: () => <Header name="main" />,
+					headerLeft: () => (
+						<View>
+							<TouchableOpacity style={{ marginLeft: 5 }} onPress={() => navigation.navigate("Community")}>
+								<Ionicons name="images-outline" size={25} color={BFTS_BLUE}></Ionicons>
+							</TouchableOpacity>
+						</View>
+					),
+				}}
+			/>
+			<Stack.Screen
+				name="Community"
+				component={Community}
+				options={{
+					headerTitle: () => <Header name="community" />,
+					headerLeft: () => (
+						<View>
+							<TouchableOpacity style={{ marginLeft: 5 }} onPress={() => navigation.navigate("Main1")}>
+								<Ionicons name="chevron-back-outline" size={25} color={BFTS_BLUE}></Ionicons>
+							</TouchableOpacity>
+						</View>
+					),
+				}}
+			/>
+		</Stack.Navigator>
+	)
+}
+
+const ProfileNav = ({navigation}) => {
+
+	const headerTitle = <Header />
+
+
+	return (
+		<Stack.Navigator>
+			<Stack.Screen
+				name="Profile1"
+				component={Profile}
+				options={{
+					headerTitle: () => headerTitle,
+					headerLeft: () => (
+						<View>
+							<TouchableOpacity style={{ marginLeft: 5 }} onPress={() => navigation.navigate("Community")}>
+								<Ionicons name="images-outline" size={25} color={BFTS_BLUE}></Ionicons>
+							</TouchableOpacity>
+						</View>
+					),
+				}}
+			/>
+			<Stack.Screen
+				name="Community"
+				component={Community}
+				options={{
+					headerTitle: () => headerTitle,
+					headerLeft: () => (
+						<View>
+							<TouchableOpacity style={{ marginLeft: 5 }} onPress={() => navigation.navigate("Profile1")}>
+								<Ionicons name="chevron-back-outline" size={25} color={BFTS_BLUE}></Ionicons>
+							</TouchableOpacity>
+						</View>
+					),
+				}}
+			/>
+		</Stack.Navigator>
+	)
+}
 
 const Home = () => {
+
+
 	return (
 		<Tab.Navigator
 			screenOptions={({ route }) => ({
@@ -20,7 +103,7 @@ const Home = () => {
 
 					if (route.name === 'Main') {
 						icon = require('../../assets/house.png');
-					} else if (route.name === 'Community') {
+					} else if (route.name === 'Profile') {
 						icon = require('../../assets/person.png');
 					} else if (route.name === 'Plus') {
 						icon = require('../../assets/plus.png');
@@ -51,43 +134,21 @@ const Home = () => {
 			})}>
 			<Tab.Screen
 				name="Main"
-				component={Main}
+				component={MainNav}
 				options={{
-					headerTitle: () => <Header name="main" />,
-					headerLeft: () => (
-						<View>
-							<TouchableOpacity style={{ marginLeft: 15 }}>
-								<Ionicons name="images-outline" size={25} color={BFTS_BLUE}></Ionicons>
-							</TouchableOpacity>
-						</View>
-					),
+					headerShown: false
 				}}
 			/>
+			<Tab.Screen name="Plus" component={Community} options={{ headerShown: false }} />
 			<Tab.Screen
-				name="Community"
-				component={Community}
+				name="Profile"
+				component={ProfileNav}
 				options={{
-					headerTitle: () => <Header name="community" />,
-					headerLeft: () => (
-						<View>
-							<TouchableOpacity style={{ marginLeft: 15 }}>
-								<Ionicons name="chevron-back-outline" size={25} color={BFTS_BLUE}></Ionicons>
-							</TouchableOpacity>
-						</View>
-					),
+					headerShown: false
 				}}
 			/>
 		</Tab.Navigator>
 	);
 };
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-});
 
 export default Home;

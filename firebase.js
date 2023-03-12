@@ -10,12 +10,12 @@ import { API_KEY, AUTH_DOMAIN, PROJECT_ID, STORAGE_BUCKET, MESSAGING_SENDER_ID, 
 // Your web app's Firebase configuration
 const firebaseConfig = {
 	// Insert secrets here
-	apiKey: API_KEY,
-	authDomain: AUTH_DOMAIN,
-	projectId: PROJECT_ID,
-	storageBucket: STORAGE_BUCKET,
-	messagingSenderId: MESSAGING_SENDER_ID,
-	appId: FIREBASE_APP_ID,
+	apiKey: "AIzaSyBbnwgqvj0WE7s5ldM7zzv_4IYGKk3YxQs",
+	authDomain: "bfts-e5301.firebaseapp.com",
+	projectId: "bfts-e5301",
+	storageBucket: "bfts-e5301.appspot.com",
+	messagingSenderId: "682538519243",
+	appId: "1:682538519243:web:385c232049722288f6a94e"
 };
 
 // Initialize Firebase

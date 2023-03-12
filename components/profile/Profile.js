@@ -1,10 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
-const Main = () => {
+const Profile = () => {
 	return (
 		<View style={styles.container}>
-			<Text>Main screen after login.</Text>
+			<Text>Profile screen after login.</Text>
 		</View>
 	);
 };
@@ -18,4 +18,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default Main;
+export default Profile;

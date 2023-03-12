@@ -6,6 +6,7 @@ import Home from './components/home/Home';
 import Register from './components/register/Register';
 import Landing from './components/landing/Landing';
 import { useFonts, Montserrat_900Black, Montserrat_700Bold } from '@expo-google-fonts/montserrat';
+import Community from './components/community/Community';
 
 const Stack = createNativeStackNavigator();
 
