@@ -25,7 +25,7 @@ export default function Landing() {
 					padding: 5,
 				}}
 				onPress={() => navigation.navigate('Login')}>
-				<Text style={{ fontWeight: 'bold', fontSize: 19 }}>Login</Text>
+				<Text style={{ fontWeight: 'bold', fontSize: 19, fontFamily: "Montserrat_700Bold" }}>Login</Text>
 			</TouchableOpacity>
 
 			<TouchableOpacity
@@ -42,7 +42,7 @@ export default function Landing() {
 					padding: 5,
 				}}
 				onPress={() => navigation.navigate('Register')}>
-				<Text style={{ fontWeight: 'bold', fontSize: 19, color: 'white' }}>Register</Text>
+				<Text style={{ fontWeight: 'bold', fontSize: 19, color: 'white', fontFamily: "Montserrat_700Bold" }}>Register</Text>
 			</TouchableOpacity>
 		</View>
 	);

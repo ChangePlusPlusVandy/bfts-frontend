@@ -53,7 +53,7 @@ export default function Login() {
 				</View>
 
 				<TouchableOpacity style={loginStyles.loginBtn} onPress={() => handleSubmit()}>
-					<Text style={loginStyles.loginText}>Login</Text>
+					<Text style={[loginStyles.loginText, {fontFamily: "Montserrat_700Bold"}]}>Login</Text>
 				</TouchableOpacity>
 				<View style={{ flexDirection: 'row', marginTop: 2 }}>
 					<Text>Don't have an account? </Text>

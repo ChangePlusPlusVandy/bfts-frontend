@@ -1,14 +1,10 @@
 import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Main from '../main/Main';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Community from '../community/Community';
 import Header from '../header/Header';
-import { useNavigation } from '@react-navigation/native';
 import { BFTS_BLUE } from '../../constants';
-import Landing from '../landing/Landing';
 import Profile from '../profile/Profile';
-import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ResourceDisplay from "../resources/ResourceDisplay"
 

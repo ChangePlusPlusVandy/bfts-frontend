@@ -1,11 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import Resource from './Resource';
+import resourceStyles from './ResourceStyles';
 
 const ResourceDisplay = () => {
 	return (
-		<View style={styles.container}>
-			<Text>Resource display screen after login.</Text>
-		</View>
+		<ScrollView style={resourceStyles.container}>
+			<Resource />
+            <Resource />
+            <Resource />
+            <Resource />
+		</ScrollView>
 	);
 };
 

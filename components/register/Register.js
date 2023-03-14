@@ -55,7 +55,7 @@ export default function Register() {
 				</View>
 
 				<TouchableOpacity style={loginStyles.loginBtn} onPress={() => handleSubmit()}>
-					<Text style={loginStyles.loginText}>Register</Text>
+					<Text style={[loginStyles.loginText, {fontFamily: "Montserrat_700Bold"}]}>Register</Text>
 				</TouchableOpacity>
 				<View style={{ flexDirection: 'row', marginTop: 2 }}>
 					<Text>Already have an account? </Text>
@@ -66,49 +66,5 @@ export default function Register() {
 				<View style={{ flex: 1 }} />
 			</View>
 		</KeyboardAvoidingView>
-
-		// <ScrollView
-		// 	contentContainerStyle={styles.container}
-		// 	keyboardShouldPersistTaps="handled"
-		// 	keyboardDismissMode="on-drag">
-		// 	<Text style={styles.header}>Register New Account</Text>
-		// 	<View style={styles.inputView}>
-		// 		<TextInput
-		// 			style={styles.textInput}
-		// 			placeholder="Email..."
-		// 			placeholderTextColor="#003f5c"
-		// 			onChangeText={email => setEmail(email)}
-		// 			value={email}
-		// 		/>
-		// 	</View>
-
-		// 	<View style={styles.inputView}>
-		// 		<TextInput
-		// 			style={styles.textInput}
-		// 			placeholder="Password..."
-		// 			placeholderTextColor="#003f5c"
-		// 			secureTextEntry={true}
-		// 			onChangeText={password => setPasswordOne(password)}
-		// 			value={passwordOne}
-		// 		/>
-		// 	</View>
-		// 	<View style={styles.inputView}>
-		// 		<TextInput
-		// 			style={styles.textInput}
-		// 			placeholder="Confirm Password..."
-		// 			placeholderTextColor="#003f5c"
-		// 			secureTextEntry={true}
-		// 			onChangeText={password => setPasswordTwo(password)}
-		// 			value={passwordTwo}
-		// 		/>
-		// 	</View>
-
-		// 	<TouchableOpacity style={styles.loginBtn} disabled={loading} onPress={handleSubmit}>
-		// 		<Text style={styles.loginText}>{loading ? 'Loading...' : 'Register'}</Text>
-		// 	</TouchableOpacity>
-		// 	{error && <Text style={styles.errorText}>{error}</Text>}
-
-		// 	<StatusBar style="auto" />
-		// </ScrollView>
 	);
 }
