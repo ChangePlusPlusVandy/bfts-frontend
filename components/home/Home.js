@@ -37,7 +37,7 @@ const MainNav = ({navigation}) => {
 					headerTitle: () => <Header name="community" />,
 					headerLeft: () => (
 						<View>
-							<TouchableOpacity style={{ marginLeft: 5 }} onPress={() => navigation.navigate("Main1")}>
+							<TouchableOpacity style={{ marginLeft: 5 }} onPress={() => navigation.navigate("Resources")}>
 								<Ionicons name="chevron-back-outline" size={25} color={BFTS_BLUE}></Ionicons>
 							</TouchableOpacity>
 						</View>

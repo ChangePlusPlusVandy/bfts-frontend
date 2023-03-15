@@ -3,13 +3,41 @@ import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import Resource from './Resource';
 import resourceStyles from './ResourceStyles';
 
+const resourceData = [
+	{
+		title: "Planet Fitness",
+		category: "Available Showers",
+		website: "www.planetfitness.com/hours",
+		contactName: "Becky Charles",
+		contactNumber: 4044218726
+	},
+	{
+		title: "Planet Fitness",
+		category: "Available Showers",
+		website: "www.planetfitness.com/hours",
+		contactName: "Becky Charles",
+		contactNumber: 4044218726
+	},
+	{
+		title: "Planet Fitness",
+		category: "Available Showers",
+		website: "www.planetfitness.com/hours",
+		contactName: "Becky Charles",
+		contactNumber: 4044218726
+	},
+	{
+		title: "Planet Fitness",
+		category: "Available Showers",
+		website: "www.planetfitness.com/hours",
+		contactName: "Becky Charles",
+		contactNumber: 4044218726
+	}
+]
+
 const ResourceDisplay = () => {
 	return (
 		<ScrollView style={resourceStyles.container}>
-			<Resource />
-            <Resource />
-            <Resource />
-            <Resource />
+			{resourceData.map((r, id) => <Resource resource={r} key={id} />)}
 		</ScrollView>
 	);
 };

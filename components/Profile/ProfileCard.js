@@ -10,7 +10,7 @@ export default function ProfileCard({ profile }) {
                     <Text style={{color: 'black', fontWeight: '200', fontSize: 15}}>  {profile.pronouns}</Text>
                 </Text>
             </View>
-            <View style={{marginLeft:20, marginBottom: 40}}>
+            <View style={{marginLeft:20, marginBottom: 40, marginRight:20}}>
                 <Text>{profile.location}</Text>
                 <Text>{profile.livingSituation}</Text>
             </View>
