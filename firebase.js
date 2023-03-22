@@ -5,17 +5,17 @@ import { initializeApp } from 'firebase/app';
 // https://firebase.google.com/docs/web/setup#available-libraries
 import 'firebase/auth';
 import { getAuth } from 'firebase/auth';
-import { API_KEY, AUTH_DOMAIN, PROJECT_ID, STORAGE_BUCKET, MESSAGING_SENDER_ID, FIREBASE_APP_ID } from '@env';
+// import { API_KEY, AUTH_DOMAIN, PROJECT_ID, STORAGE_BUCKET, MESSAGING_SENDER_ID, FIREBASE_APP_ID } from '@env';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
 	// Insert secrets here
-	apiKey: API_KEY,
-	authDomain: AUTH_DOMAIN,
-	projectId: PROJECT_ID,
-	storageBucket: STORAGE_BUCKET,
-	messagingSenderId: MESSAGING_SENDER_ID,
-	appId: FIREBASE_APP_ID,
+	apiKey: process.env.API_KEY,
+	authDomain: process.env.AUTH_DOMAIN,
+	projectId: process.env.PROJECT_ID,
+	storageBucket: process.env.STORAGE_BUCKET,
+	messagingSenderId: process.env.MESSAGING_SENDER_ID,
+	appId: process.env.FIREBASE_APP_ID,
 };
 
 // Initialize Firebase
