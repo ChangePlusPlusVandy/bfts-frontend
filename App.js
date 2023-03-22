@@ -5,7 +5,13 @@ import Login from './components/login/Login';
 import Home from './components/home/Home';
 import Register from './components/register/Register';
 import Landing from './components/landing/Landing';
-import { useFonts, Montserrat_900Black, Montserrat_700Bold, Montserrat_400Regular, Montserrat_500Medium } from '@expo-google-fonts/montserrat';
+import {
+	useFonts,
+	Montserrat_900Black,
+	Montserrat_700Bold,
+	Montserrat_400Regular,
+	Montserrat_500Medium,
+} from '@expo-google-fonts/montserrat';
 import Community from './components/community/Community';
 
 const Stack = createNativeStackNavigator();
@@ -15,7 +21,7 @@ export default function App() {
 		Montserrat_700Bold,
 		Montserrat_900Black,
 		Montserrat_400Regular,
-		Montserrat_500Medium
+		Montserrat_500Medium,
 	});
 
 	return (

@@ -5,39 +5,41 @@ import resourceStyles from './ResourceStyles';
 
 const resourceData = [
 	{
-		title: "Planet Fitness",
-		category: "Available Showers",
-		website: "www.planetfitness.com/hours",
-		contactName: "Becky Charles",
-		contactNumber: 4044218726
+		title: 'Planet Fitness',
+		category: 'Available Showers',
+		website: 'www.planetfitness.com/hours',
+		contactName: 'Becky Charles',
+		contactNumber: 4044218726,
 	},
 	{
-		title: "Planet Fitness",
-		category: "Available Showers",
-		website: "www.planetfitness.com/hours",
-		contactName: "Becky Charles",
-		contactNumber: 4044218726
+		title: 'Planet Fitness',
+		category: 'Available Showers',
+		website: 'www.planetfitness.com/hours',
+		contactName: 'Becky Charles',
+		contactNumber: 4044218726,
 	},
 	{
-		title: "Planet Fitness",
-		category: "Available Showers",
-		website: "www.planetfitness.com/hours",
-		contactName: "Becky Charles",
-		contactNumber: 4044218726
+		title: 'Planet Fitness',
+		category: 'Available Showers',
+		website: 'www.planetfitness.com/hours',
+		contactName: 'Becky Charles',
+		contactNumber: 4044218726,
 	},
 	{
-		title: "Planet Fitness",
-		category: "Available Showers",
-		website: "www.planetfitness.com/hours",
-		contactName: "Becky Charles",
-		contactNumber: 4044218726
-	}
-]
+		title: 'Planet Fitness',
+		category: 'Available Showers',
+		website: 'www.planetfitness.com/hours',
+		contactName: 'Becky Charles',
+		contactNumber: 4044218726,
+	},
+];
 
 const ResourceDisplay = () => {
 	return (
 		<ScrollView style={resourceStyles.container}>
-			{resourceData.map((r, id) => <Resource resource={r} key={id} />)}
+			{resourceData.map((r, id) => (
+				<Resource resource={r} key={id} />
+			))}
 		</ScrollView>
 	);
 };

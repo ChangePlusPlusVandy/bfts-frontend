@@ -55,7 +55,7 @@ export default function Register() {
 				</View>
 
 				<TouchableOpacity style={loginStyles.loginBtn} onPress={() => handleSubmit()}>
-					<Text style={[loginStyles.loginText, {fontFamily: "Montserrat_700Bold"}]}>Register</Text>
+					<Text style={[loginStyles.loginText, { fontFamily: 'Montserrat_700Bold' }]}>Register</Text>
 				</TouchableOpacity>
 				<View style={{ flexDirection: 'row', marginTop: 2 }}>
 					<Text>Already have an account? </Text>

@@ -6,14 +6,12 @@ import Header from '../header/Header';
 import { BFTS_BLUE } from '../../constants';
 import Profile from '../profile/Profile';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import ResourceDisplay from "../resources/ResourceDisplay"
+import ResourceDisplay from '../resources/ResourceDisplay';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
-const MainNav = ({navigation}) => {
-
-
+const MainNav = ({ navigation }) => {
 	return (
 		<Stack.Navigator>
 			<Stack.Screen
@@ -23,7 +21,9 @@ const MainNav = ({navigation}) => {
 					headerTitle: () => <Header name="main" />,
 					headerLeft: () => (
 						<View>
-							<TouchableOpacity style={{ marginLeft: 5 }} onPress={() => navigation.navigate("Community")}>
+							<TouchableOpacity
+								style={{ marginLeft: 5 }}
+								onPress={() => navigation.navigate('Community')}>
 								<Ionicons name="images-outline" size={25} color={BFTS_BLUE}></Ionicons>
 							</TouchableOpacity>
 						</View>
@@ -37,7 +37,9 @@ const MainNav = ({navigation}) => {
 					headerTitle: () => <Header name="community" />,
 					headerLeft: () => (
 						<View>
-							<TouchableOpacity style={{ marginLeft: 5 }} onPress={() => navigation.navigate("Resources")}>
+							<TouchableOpacity
+								style={{ marginLeft: 5 }}
+								onPress={() => navigation.navigate('Resources')}>
 								<Ionicons name="chevron-back-outline" size={25} color={BFTS_BLUE}></Ionicons>
 							</TouchableOpacity>
 						</View>
@@ -45,13 +47,11 @@ const MainNav = ({navigation}) => {
 				}}
 			/>
 		</Stack.Navigator>
-	)
-}
+	);
+};
 
-const ProfileNav = ({navigation}) => {
-
-	const headerTitle = <Header />
-
+const ProfileNav = ({ navigation }) => {
+	const headerTitle = <Header />;
 
 	return (
 		<Stack.Navigator>
@@ -62,7 +62,9 @@ const ProfileNav = ({navigation}) => {
 					headerTitle: () => headerTitle,
 					headerLeft: () => (
 						<View>
-							<TouchableOpacity style={{ marginLeft: 5 }} onPress={() => navigation.navigate("Community")}>
+							<TouchableOpacity
+								style={{ marginLeft: 5 }}
+								onPress={() => navigation.navigate('Community')}>
 								<Ionicons name="images-outline" size={25} color={BFTS_BLUE}></Ionicons>
 							</TouchableOpacity>
 						</View>
@@ -76,7 +78,7 @@ const ProfileNav = ({navigation}) => {
 					headerTitle: () => headerTitle,
 					headerLeft: () => (
 						<View>
-							<TouchableOpacity style={{ marginLeft: 5 }} onPress={() => navigation.navigate("Profile1")}>
+							<TouchableOpacity style={{ marginLeft: 5 }} onPress={() => navigation.navigate('Profile1')}>
 								<Ionicons name="chevron-back-outline" size={25} color={BFTS_BLUE}></Ionicons>
 							</TouchableOpacity>
 						</View>
@@ -84,12 +86,10 @@ const ProfileNav = ({navigation}) => {
 				}}
 			/>
 		</Stack.Navigator>
-	)
-}
+	);
+};
 
 const Home = () => {
-
-
 	return (
 		<Tab.Navigator
 			screenOptions={({ route }) => ({
@@ -132,7 +132,7 @@ const Home = () => {
 				name="Main"
 				component={MainNav}
 				options={{
-					headerShown: false
+					headerShown: false,
 				}}
 			/>
 			<Tab.Screen name="Plus" component={Community} options={{ headerShown: false }} />
@@ -140,7 +140,7 @@ const Home = () => {
 				name="Profile"
 				component={ProfileNav}
 				options={{
-					headerShown: false
+					headerShown: false,
 				}}
 			/>
 		</Tab.Navigator>
