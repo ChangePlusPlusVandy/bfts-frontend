@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, Component } from 'react';
 import { Text, TextInput, View, TouchableOpacity, Image, KeyboardAvoidingView, Button, Keyboard } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { SelectList } from 'react-native-dropdown-select-list'
 import infoStyles from './InfoStyle';
+import DatePicker from 'react-native-datepicker';
+
 
 export default function Info() {
+<<<<<<< HEAD
 	const [race, setRace] = useState('');
 	const [background, setBackground] = useState('');
 	const [phoneNum, setPhoneNum] = useState('');
@@ -13,6 +16,18 @@ export default function Info() {
     const [lastName, setLastName] = useState('');
     const [livingSit, setLivingSit] = useState('');
 	const [selected, setSelected] = useState("");
+=======
+	const [race, setRace] = useState(null);
+	const [birthday, setBirthday] = useState(null);
+	const [background, setBackground] = useState(null);
+	const [phoneNum, setPhoneNum] = useState(null);
+	const [firstName, setFirstName] = useState(null);
+    const [lastName, setLastName] = useState(null);
+    const [livingSit, setLivingSit] = useState(null);
+	const [selectedBurrough, setSelectedBurrough] = useState(null);
+	const [selectedGender, setSelectedGender] = useState(null);
+
+>>>>>>> 38ad202 (registration-fixed)
 
 
     const [error, setError] = useState('');
@@ -34,10 +49,17 @@ export default function Info() {
 		{key:'4', value:'Other'},
 	]
 
+
     const handleSubmit = async e => {
 		console.log("Submitting");
+<<<<<<< HEAD
 		if (gender.length === 0 || race.length === 0 || background.length === 0 
             || phoneNum.length === 0 ||livingSit.length === 0 || firstName.length === 0 || lastName.length === 0 ) {
+=======
+		if (gender === null || race=== null ||  background=== null
+            || phoneNum=== null ||livingSit=== null || firstName=== null|| lastName=== null
+			|| selectedBurrough ===null || selectedGender === null || birthday === null) {
+>>>>>>> 38ad202 (registration-fixed)
 			alert("Please fill out all fields.");
 			return;
 		}
@@ -48,6 +70,8 @@ export default function Info() {
 		} catch (error) {
 			alert("Failed to submit information.");
 		}
+
+		
 	};
 
     return (
@@ -58,8 +82,8 @@ export default function Info() {
 					<View style={{ justifyContent: 'flex-end', padding: 24, alignItems: 'center', marginTop: 75 }}>
 						<View style = {infoStyles.header}>
 							<Text
-								style={{ padding: 10, width: 250, fontFamily: 'Tenor Sans', fontSize: 30, fontWeight: 'regular', textAlign: 'center' }}>
-								Add a New Client
+								style={{ padding: 10, width: 400, fontFamily: 'Tenor Sans', fontSize: 33, fontWeight: 'regular', textAlign: 'center' }}>
+								Volunteer Registration
 							</Text>
 						</View>
 						<View style={infoStyles.inputField}>
@@ -109,7 +133,7 @@ export default function Info() {
 						</View>
 
 						<SelectList 
-							setSelected={(val) => setSelected(val)} 
+							setSelected={(val) => setSelectedBurrough(val)} 
 							data={burrough} 
 							save="value"
 							boxStyles={{borderColor: '#F2F2F2' ,borderRadius:10, 
@@ -117,11 +141,36 @@ export default function Info() {
 						/>
 
 						<SelectList 
-							setSelected={(val) => setSelected(val)} 
+							setSelected={(val) => setSelectedGender(val)} 
 							data={gender} 
 							save="value"
 							boxStyles={{borderColor: '#F2F2F2' ,borderRadius:10, margin: 15,
 											width: 320, height: 47, backgroundColor: '#F2F2F2'}}
+						/>
+
+						<DatePicker
+							style={{ width: 340, borderRadius: 10, borderColor: 'white'}}
+							date={birthday}
+							mode="date"
+							placeholder='Choose Birthday'
+							format="YYYY-MM-DD"
+							minDate="1900-05-01"
+							maxDate="2023-04-01"
+							confirmBtnText="Confirm"
+							cancelBtnText="Cancel"
+							customStyles={{
+							dateIcon: {
+								width: 0
+							},
+							dateInput: {
+								marginLeft: 10,
+								backgroundColor: '#F2F2F2',
+								borderRadius: 10,
+								height: 45
+							}
+						
+							}}
+							onDateChange={(date) => setBirthday(date)}
 						/>
 						
 					
