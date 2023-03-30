@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Text, TextInput, View, TouchableOpacity, Image, KeyboardAvoidingView, Button } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { StatusBar } from 'expo-status-bar';
 import logo from '../../assets/B_logo.png';
 import loginStyles from './LoginStyle';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -32,6 +33,7 @@ export default function Login() {
 
 	return (
 		<KeyboardAvoidingView style={loginStyles.container} behavior="padding">
+			<StatusBar />
 			<View style={{ justifyContent: 'flex-end', padding: 24, alignItems: 'center', marginTop: 75 }}>
 				<Image source={logo} style={loginStyles.logo} />
 				<View style={loginStyles.inputField}>
