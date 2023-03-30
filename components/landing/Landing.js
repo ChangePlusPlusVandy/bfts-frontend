@@ -1,18 +1,26 @@
 import React from 'react';
-import { Text, View, TouchableOpacity, Image } from 'react-native';
+import { Text, View, TouchableOpacity, Image, ScrollView, SafeAreaView } from 'react-native';
 import logo from '../../assets/B_logo.png';
 import { BFTS_BLUE, BFTS_WHITE } from '../../constants';
 import landingStyles from './LandingStyles';
 import { useNavigation } from '@react-navigation/native';
+import EditProfileField from '../profile/editProfileField';
 
 export default function Landing() {
 	const navigation = useNavigation();
 
 	return (
 		<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: BFTS_WHITE }}>
-			<Image source={logo} style={landingStyles.logo} />
-
-			<TouchableOpacity
+			{/* <Image source={logo} style={landingStyles.logo} /> */}
+			<SafeAreaView>
+				<ScrollView>
+					<EditProfileField val='Bobby'/>
+					<EditProfileField val="He/Him" />
+					<EditProfileField val='Falls Church' />
+					<EditProfileField val='(703) 123-4567' />
+				</ScrollView>
+			</SafeAreaView>
+			{/* <TouchableOpacity
 				style={{
 					backgroundColor: BFTS_WHITE,
 					borderColor: BFTS_BLUE,
@@ -45,7 +53,7 @@ export default function Landing() {
 				<Text style={{ fontWeight: 'bold', fontSize: 19, color: 'white', fontFamily: 'Montserrat_700Bold' }}>
 					Register
 				</Text>
-			</TouchableOpacity>
+			</TouchableOpacity> */}
 		</View>
 	);
 }
