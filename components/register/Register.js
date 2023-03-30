@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Text, TextInput, View, TouchableOpacity, Image, KeyboardAvoidingView, Button } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/B_logo.png';
 import loginStyles from '../login/LoginStyle';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { BFTS_BLUE } from '../../constants';
@@ -57,7 +57,7 @@ export default function Register() {
 				<TouchableOpacity style={loginStyles.loginBtn} onPress={() => handleSubmit()}>
 					<Text style={[loginStyles.loginText, { fontFamily: 'Montserrat_700Bold' }]}>Register</Text>
 				</TouchableOpacity>
-				<View style={{ flexDirection: 'row', marginTop: 2 }}>
+				<View style={{ flexDirection: 'row', marginTop: 5 }}>
 					<Text>Already have an account? </Text>
 					<TouchableOpacity onPress={() => navigation.navigate('Login')}>
 						<Text style={{ color: BFTS_BLUE, textDecorationLine: 'underline' }}>Login</Text>
