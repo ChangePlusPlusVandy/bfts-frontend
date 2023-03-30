@@ -1,9 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import resourceStyles from './ResourceStyles';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const ResourceInfo = ({ icon, info }) => {
+const ResourceInfo = ({ icon, info, clickable }) => {
 	return (
 		<View style={resourceStyles.singularInfoContainer}>
 			<Ionicons
@@ -12,9 +12,16 @@ const ResourceInfo = ({ icon, info }) => {
 				color="blue"
 				style={{ paddingRight: 10, paddingBottom: 10, paddingTop: 2 }}
 			/>
-			<Text style={{ fontFamily: 'Montserrat_500Medium', color: 'black' }}>{info}</Text>
+			<TouchableOpacity disabled={!clickable}>
+				<Text style={{ fontFamily: 'Montserrat_500Medium', color: 'black' }}>
+					{typeof(info) === 'number' && info.toString().length == 10 ? 
+					// format as a phone number
+						'(' + ((info/(10**7))|0) + ') ' + ((info % 10**7)/(10**4)|0) + '-' + ((info%(10**4))) 
+						: info}
+				</Text>
+			</TouchableOpacity>
 		</View>
-	);
+	)
 };
 
 export default ResourceInfo;
