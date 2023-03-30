@@ -5,7 +5,7 @@ const cardStyles = StyleSheet.create({
 		backgroundColor: 'white',
 		borderRadius: 20,
 		borderColor: 'blue',
-		width: '75%',
+		width: '80%',
 		shadowColor: '#000',
 		shadowOffset: {
 			width: 0,
@@ -17,7 +17,7 @@ const cardStyles = StyleSheet.create({
 		elevation: 8,
 		marginBottom: 10,
 	},
-	nameView: { flexDirection: 'row', marginLeft: 20, marginBottom: 10, marginTop: 25, marginRight: 15 },
+	nameView: { flexDirection: 'row', marginLeft: 20, marginTop: 25, marginRight: 15 },
 });
 
 export default cardStyles;
