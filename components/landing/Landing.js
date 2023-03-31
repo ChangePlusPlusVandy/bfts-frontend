@@ -4,22 +4,18 @@ import logo from '../../assets/B_logo.png';
 import { BFTS_BLUE, BFTS_WHITE } from '../../constants';
 import landingStyles from './LandingStyles';
 import { useNavigation } from '@react-navigation/native';
-import EditProfileField from '../profile/editProfileField';
+import EditProfile from '../profile/EditProfile';
+import { useState } from 'react';
 
 export default function Landing() {
 	const navigation = useNavigation();
 
+	const [sumbitted, setSubmittedValue] = useState(false);
+
+
 	return (
-		<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: BFTS_WHITE }}>
-			{/* <Image source={logo} style={landingStyles.logo} /> */}
-			<SafeAreaView>
-				<ScrollView>
-					<EditProfileField val='Bobby'/>
-					<EditProfileField val="He/Him" />
-					<EditProfileField val='Falls Church' />
-					<EditProfileField val='(703) 123-4567' />
-				</ScrollView>
-			</SafeAreaView>
+		<View style={{flex: 1}}>
+			<EditProfile />
 			{/* <TouchableOpacity
 				style={{
 					backgroundColor: BFTS_WHITE,
