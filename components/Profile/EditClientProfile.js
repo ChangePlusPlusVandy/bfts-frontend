@@ -1,26 +1,29 @@
 import React from 'react';
 import { Text, View, TouchableOpacity, Image, ScrollView, SafeAreaView } from 'react-native';
 import { BFTS_BLUE, BFTS_WHITE } from '../../constants';
-import EditProfileField from '../profile/EditProfileField';
+import EditField from './EditField';
 import { useState } from 'react';
 
 
-export default function EditProfile() {
+export default function EditClientProfile() {
 	const [sumbitted, setSubmittedValue] = useState(false);
 
 return (
-<SafeAreaView style={{flex: 1}}>
+<SafeAreaView style={{flex: 1, backgroundColor: {BFTS_WHITE}}}>
     <View style={{alignItems: 'center', justifyContent: 'center', marginVertical: 15,}}>
         <Text style={[{fontSize: 20,color: 'black', fontWeight: 'bold'}, { fontFamily: 'Montserrat_700Bold' }]}>
-            Edit Profile
+            Edit Client Profile
         </Text>
     </View>
     <ScrollView>
         <View style={{alignItems: 'center', justifyContent: 'center'}}>
-            <EditProfileField val='Bobby'submitted={sumbitted}/>
-            <EditProfileField val="He/Him" submitted={sumbitted}/>
-            <EditProfileField val='Falls Church' submitted={sumbitted}/>
-            <EditProfileField val='7031234568' submitted={sumbitted}/>
+            <EditField val='Bobby'submitted={sumbitted}/>
+            <EditField val="Miller" submitted={sumbitted}/>
+            <EditField val='Falls Church' submitted={sumbitted}/>
+            <EditField val='01/01/2001' submitted={sumbitted}/>
+            <EditField val="He/Him" submitted={sumbitted}/>
+            <EditField val="Living Situation" submitted={sumbitted} multiline={true}/>
+            <EditField val="Personal Background" submitted={sumbitted} multiline={true}/>
         </View>
     </ScrollView>
     <View style={{alignItems: 'center', justifyContent: 'center', flex: 1, justifyContent: 'flex-end', marginBottom: '8%'}}>
@@ -36,7 +39,7 @@ return (
                 }}
                 onPress={() => setSubmittedValue(true)}>
                 <Text style={[{fontSize: 18,color: BFTS_WHITE, fontWeight: 'bold'}, { fontFamily: 'Montserrat_700Bold' }]}>
-                        Submit Changes?
+                        Submit Changes
                 </Text>
         </TouchableOpacity>
     </View>

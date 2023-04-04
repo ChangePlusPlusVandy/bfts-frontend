@@ -4,8 +4,9 @@ import logo from '../../assets/B_logo.png';
 import { BFTS_BLUE, BFTS_WHITE } from '../../constants';
 import landingStyles from './LandingStyles';
 import { useNavigation } from '@react-navigation/native';
-import EditProfile from '../profile/EditProfile';
+import EditProfile from '../profile/EditClientProfile';
 import { useState } from 'react';
+import EditVolunteerProfile from '../profile/EditVolunteerProfile';
 
 export default function Landing() {
 	const navigation = useNavigation();
@@ -15,7 +16,7 @@ export default function Landing() {
 
 	return (
 		<View style={{flex: 1}}>
-			<EditProfile />
+			<EditVolunteerProfile />
 			{/* <TouchableOpacity
 				style={{
 					backgroundColor: BFTS_WHITE,
