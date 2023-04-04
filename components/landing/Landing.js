@@ -16,8 +16,7 @@ export default function Landing() {
 
 	return (
 		<View style={{flex: 1}}>
-			<EditVolunteerProfile />
-			{/* <TouchableOpacity
+			<TouchableOpacity
 				style={{
 					backgroundColor: BFTS_WHITE,
 					borderColor: BFTS_BLUE,
@@ -50,7 +49,7 @@ export default function Landing() {
 				<Text style={{ fontWeight: 'bold', fontSize: 19, color: 'white', fontFamily: 'Montserrat_700Bold' }}>
 					Register
 				</Text>
-			</TouchableOpacity> */}
+			</TouchableOpacity>
 		</View>
 	);
 }
