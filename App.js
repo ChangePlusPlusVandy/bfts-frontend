@@ -24,6 +24,10 @@ export default function App() {
 		Montserrat_500Medium,
 	});
 
+	while (!fontsLoaded) {
+		return ();
+	}
+
 	return (
 		<NavigationContainer>
 			<Stack.Navigator>
