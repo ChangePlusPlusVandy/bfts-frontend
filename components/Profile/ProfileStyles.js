@@ -22,7 +22,7 @@ const profileStyles = StyleSheet.create({
 	},
 	addClientBtn: {
 		backgroundColor: BFTS_BLUE,
-		borderRadius: 5,
+		borderRadius: 10,
 		width: '85%',
 		alignContent: 'center',
 		alignItems: 'center',

@@ -54,7 +54,7 @@ const Profile = () => {
 					height: '8%'
 				}}>
 				<TouchableOpacity style={[profileStyles.addClientBtn, { marginLeft: 5 }]}>
-					<Text style={{ fontFamily: 'Montserrat_700Bold', color: 'white' }}>Add Client</Text>
+					<Text style={{ fontFamily: 'Montserrat_700Bold', color: 'white', fontSize:19 }}>Add Client</Text>
 				</TouchableOpacity>
 			</View>
 

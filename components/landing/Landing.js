@@ -15,7 +15,9 @@ export default function Landing() {
 
 
 	return (
-		<View style={{flex: 1}}>
+		<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: BFTS_WHITE }}>
+			<Image source={logo} style={landingStyles.logo} />
+			
 			<TouchableOpacity
 				style={{
 					backgroundColor: BFTS_WHITE,
