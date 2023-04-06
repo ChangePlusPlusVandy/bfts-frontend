@@ -1,5 +1,6 @@
 import { Text, View, TouchableOpacity, ScrollView } from 'react-native';
 import profileStyles from './ProfileStyles';
+import AddClient from '../addClient/AddClient';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ProfileCard from './ProfileCard';
 
@@ -53,6 +54,7 @@ const Profile = () => {
 				</TouchableOpacity>
 				<TouchableOpacity style={[profileStyles.editProfileBtn, { marginLeft: 5 }]}>
 					<Text style={{ fontFamily: 'Montserrat_700Bold', color: 'black' }}>Add Client</Text>
+					
 				</TouchableOpacity>
 			</View>
 
