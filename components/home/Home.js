@@ -47,6 +47,7 @@ const MainNav = ({ navigation }) => {
 					),
 				}}
 			/>
+			
 		</Stack.Navigator>
 	);
 };
