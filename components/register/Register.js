@@ -26,7 +26,7 @@ export default function Register() {
 
 		try {
 			await createUserWithEmailAndPassword(auth, email, passwordOne);
-			navigation.navigate("Info");
+			navigation.navigate('Info');
 		} catch (error) {
 			alert('Failed to create user.');
 		}
