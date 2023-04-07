@@ -4,21 +4,10 @@ import { useNavigation } from '@react-navigation/native';
 import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { SelectList } from 'react-native-dropdown-select-list'
 import infoStyles from './InfoStyle';
-import DatePicker from 'react-native-datepicker';
 
 
 export default function Info() {
-<<<<<<< HEAD
-	const [race, setRace] = useState('');
-	const [background, setBackground] = useState('');
-	const [phoneNum, setPhoneNum] = useState('');
-	const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [livingSit, setLivingSit] = useState('');
-	const [selected, setSelected] = useState("");
-=======
 	const [race, setRace] = useState(null);
-	const [birthday, setBirthday] = useState(null);
 	const [background, setBackground] = useState(null);
 	const [phoneNum, setPhoneNum] = useState(null);
 	const [firstName, setFirstName] = useState(null);
@@ -26,8 +15,6 @@ export default function Info() {
     const [livingSit, setLivingSit] = useState(null);
 	const [selectedBurrough, setSelectedBurrough] = useState(null);
 	const [selectedGender, setSelectedGender] = useState(null);
-
->>>>>>> 38ad202 (registration-fixed)
 
 
     const [error, setError] = useState('');
@@ -52,14 +39,9 @@ export default function Info() {
 
     const handleSubmit = async e => {
 		console.log("Submitting");
-<<<<<<< HEAD
-		if (gender.length === 0 || race.length === 0 || background.length === 0 
-            || phoneNum.length === 0 ||livingSit.length === 0 || firstName.length === 0 || lastName.length === 0 ) {
-=======
 		if (gender === null || race=== null ||  background=== null
             || phoneNum=== null ||livingSit=== null || firstName=== null|| lastName=== null
-			|| selectedBurrough ===null || selectedGender === null || birthday === null) {
->>>>>>> 38ad202 (registration-fixed)
+			|| selectedBurrough ===null || selectedGender === null) {
 			alert("Please fill out all fields.");
 			return;
 		}
@@ -146,33 +128,7 @@ export default function Info() {
 							save="value"
 							boxStyles={{borderColor: '#F2F2F2' ,borderRadius:10, margin: 15,
 											width: 320, height: 47, backgroundColor: '#F2F2F2'}}
-						/>
-
-						<DatePicker
-							style={{ width: 340, borderRadius: 10, borderColor: 'white'}}
-							date={birthday}
-							mode="date"
-							placeholder='Choose Birthday'
-							format="YYYY-MM-DD"
-							minDate="1900-05-01"
-							maxDate="2023-04-01"
-							confirmBtnText="Confirm"
-							cancelBtnText="Cancel"
-							customStyles={{
-							dateIcon: {
-								width: 0
-							},
-							dateInput: {
-								marginLeft: 10,
-								backgroundColor: '#F2F2F2',
-								borderRadius: 10,
-								height: 45
-							}
-						
-							}}
-							onDateChange={(date) => setBirthday(date)}
-						/>
-						
+						/>		
 					
 						<TouchableOpacity style={infoStyles.submitBtn} onPress={() => handleSubmit()}>
 							<Text style={infoStyles.infoText}>Submit</Text>
