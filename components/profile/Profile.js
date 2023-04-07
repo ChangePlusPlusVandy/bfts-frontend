@@ -54,7 +54,7 @@ const Profile = () => {
 				</TouchableOpacity>
 				<TouchableOpacity style={[profileStyles.editProfileBtn, { marginLeft: 5 }]}>
 					<Text style={{ fontFamily: 'Montserrat_700Bold', color: 'black' }}>Add Client</Text>
-					
+					onPress={() => navigation.navigate('AddClient')}
 				</TouchableOpacity>
 			</View>
 
