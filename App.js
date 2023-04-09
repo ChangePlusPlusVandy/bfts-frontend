@@ -5,6 +5,7 @@ import Login from './components/login/Login';
 import Home from './components/home/Home';
 import Register from './components/register/Register';
 import Landing from './components/landing/Landing';
+import Info from './components/info/Info';
 import {
 	useFonts,
 	Montserrat_900Black,
@@ -49,6 +50,13 @@ export default function App() {
 					name="Home"
 					title="Home"
 					component={Home}
+					options={{ headerShown: false, gestureEnabled: false }}
+				/>
+
+				<Stack.Screen
+					name="Info"
+					title="Info"
+					component={Info}
 					options={{ headerShown: false, gestureEnabled: false }}
 				/>
 			</Stack.Navigator>
