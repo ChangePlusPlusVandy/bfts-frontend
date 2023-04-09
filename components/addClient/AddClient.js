@@ -4,12 +4,10 @@ import { useNavigation } from '@react-navigation/native';
 import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { SelectList } from 'react-native-dropdown-select-list'
 import addClientStyles from './AddClientStyle';
-import DatePicker from 'react-native-datepicker';
 
 
 export default function AddClient() {
 	const [race, setRace] = useState(null);
-	const [birthday, setBirthday] = useState(null);
 	const [background, setBackground] = useState(null);
 	const [phoneNum, setPhoneNum] = useState(null);
 	const [firstName, setFirstName] = useState(null);
@@ -17,8 +15,6 @@ export default function AddClient() {
     const [livingSit, setLivingSit] = useState(null);
 	const [selectedBurrough, setSelectedBurrough] = useState(null);
 	const [selectedGender, setSelectedGender] = useState(null);
-
-
 
     const [error, setError] = useState('');
 	const [loading, setLoading] = useState(false);
@@ -44,14 +40,14 @@ export default function AddClient() {
 		console.log("Submitting");
 		if (gender === null || race=== null ||  background=== null
             || phoneNum=== null ||livingSit=== null || firstName=== null|| lastName=== null
-			|| selectedBurrough ===null || selectedGender === null || birthday === null) {
+			|| selectedBurrough ===null || selectedGender === null ) {
 			alert("Please fill out all fields.");
 			return;
 		}
 
 		try {
 			// Calling fetch
-			navigation.navigate("Home")
+			navigation.navigate("Profile1")
 		} catch (error) {
 			alert("Failed to submit information.");
 		}
@@ -68,7 +64,7 @@ export default function AddClient() {
 						<View style = {addClientStyles.header}>
 							<Text
 								style={{ padding: 10, width: 400, fontFamily: 'Tenor Sans', fontSize: 33, fontWeight: 'regular', textAlign: 'center' }}>
-								Volunteer Registration
+								Client Information
 							</Text>
 						</View>
 						<View style={addClientStyles.inputField}>
@@ -133,30 +129,7 @@ export default function AddClient() {
 											width: 320, height: 47, backgroundColor: '#F2F2F2'}}
 						/>
 
-						<DatePicker
-							style={{ width: 340, borderRadius: 10, borderColor: 'white'}}
-							date={birthday}
-							mode="date"
-							placeholder='Choose Birthday'
-							format="YYYY-MM-DD"
-							minDate="1900-05-01"
-							maxDate="2023-04-01"
-							confirmBtnText="Confirm"
-							cancelBtnText="Cancel"
-							customStyles={{
-							dateIcon: {
-								width: 0
-							},
-							dateInput: {
-								marginLeft: 10,
-								backgroundColor: '#F2F2F2',
-								borderRadius: 10,
-								height: 45
-							}
 						
-							}}
-							onDateChange={(date) => setBirthday(date)}
-						/>
 						
 					
 						<TouchableOpacity style={addClientStyles.submitBtn} onPress={() => handleSubmit()}>
