@@ -7,8 +7,6 @@ import Register from './components/register/Register';
 import Landing from './components/landing/Landing';
 import AddClient from './components/addClient/AddClient';
 import Info from './components/info/Info';
-import AddClient from './components/addClient/AddClient';
-import Info from './components/info/Info';
 import {
 	useFonts,
 	Montserrat_900Black,
@@ -76,19 +74,7 @@ export default function App() {
 					options={{ headerShown: false, gestureEnabled: false }}
 				/>
 
-				<Stack.Screen
-					name="Info"
-					title="Info"
-					component={Info}
-					options={{ headerShown: false, gestureEnabled: false }}
-				/>
-
-				<Stack.Screen
-					name="AddClient"
-					title="AddClient"
-					component={AddClient}
-					options={{ headerShown: false, gestureEnabled: false }}
-				/>
+			
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
