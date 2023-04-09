@@ -5,7 +5,6 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 import ProfileCard from './ProfileCard';
 
-
 const profiles = [
 	{
 		name: 'John Doe',
@@ -56,7 +55,8 @@ const Profile = () => {
 				<TouchableOpacity style={[profileStyles.editProfileBtn, { marginRight: 5 }]}>
 					<Text style={{ fontFamily: 'Montserrat_700Bold', color: 'black' }}>Edit Profile</Text>
 				</TouchableOpacity>
-				<TouchableOpacity onPress={() => navigation.navigate('AddClient')}
+				<TouchableOpacity
+					onPress={() => navigation.navigate('AddClient')}
 					style={[profileStyles.editProfileBtn, { marginLeft: 5 }]}>
 					<Text style={{ fontFamily: 'Montserrat_700Bold', color: 'black' }}>Add Client</Text>
 				</TouchableOpacity>
