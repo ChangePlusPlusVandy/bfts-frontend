@@ -15,7 +15,6 @@ import {
 	Montserrat_500Medium,
 } from '@expo-google-fonts/montserrat';
 import Community from './components/community/Community';
-import AddClient from './components/addClient/AddClient';
 
 const Stack = createNativeStackNavigator();
 
@@ -67,12 +66,7 @@ export default function App() {
 					component={Info}
 					options={{ headerShown: false, gestureEnabled: false }}
 				/>
-				<Stack.Screen
-					name="AddClient"
-					title="AddClient"
-					component={AddClient}
-					options={{ headerShown: false, gestureEnabled: false }}
-				/>
+				
 
 			
 			</Stack.Navigator>
