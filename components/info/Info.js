@@ -5,7 +5,7 @@ import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handl
 import { SelectList } from 'react-native-dropdown-select-list';
 import infoStyles from './InfoStyle';
 
-export default function Info() {
+const Info = () => {
 	const [race, setRace] = useState(null);
 	const [background, setBackground] = useState(null);
 	const [phoneNum, setPhoneNum] = useState(null);
@@ -63,14 +63,14 @@ export default function Info() {
 		<KeyboardAvoidingView style={infoStyles.container} behavior="padding">
 			<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
 				<ScrollView>
-					<View style={{ justifyContent: 'flex-end', padding: 24, alignItems: 'center', marginTop: 75 }}>
+					<View style={{ justifyContent: 'flex-end', padding: 24, alignItems: 'center', marginTop: 60 }}>
 						<View style={infoStyles.header}>
 							<Text
 								style={{
-									padding: 10,
+									padding: 3,
 									width: 400,
-									fontFamily: 'Tenor Sans',
-									fontSize: 33,
+									fontFamily: 'Montserrat_400Regular',
+									fontSize: 30,
 									fontWeight: 'regular',
 									textAlign: 'center',
 								}}>
@@ -117,7 +117,7 @@ export default function Info() {
 						</View>
 						<View style={infoStyles.inputField}>
 							<TextInput
-								placeholder="Living Situation"
+								placeholder="Pronouns"
 								style={{ padding: 8, width: 270 }}
 								onChangeText={text => setLivingSit(text)}
 							/>
@@ -127,6 +127,7 @@ export default function Info() {
 							setSelected={val => setSelectedBurrough(val)}
 							data={burrough}
 							save="value"
+							placeholder="Select Burrough"
 							boxStyles={{
 								borderColor: '#F2F2F2',
 								borderRadius: 10,
@@ -140,6 +141,7 @@ export default function Info() {
 							setSelected={val => setSelectedGender(val)}
 							data={gender}
 							save="value"
+							placeholder="Gender"
 							boxStyles={{
 								borderColor: '#F2F2F2',
 								borderRadius: 10,
@@ -160,4 +162,6 @@ export default function Info() {
 			</TouchableWithoutFeedback>
 		</KeyboardAvoidingView>
 	);
-}
+};
+
+export default Info;
