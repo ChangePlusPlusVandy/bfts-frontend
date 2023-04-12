@@ -69,7 +69,7 @@ const Info = () => {
 								style={{
 									padding: 3,
 									width: 400,
-									fontFamily: "Montserrat_400Regular",
+									fontFamily: 'Montserrat_400Regular',
 									fontSize: 30,
 									fontWeight: 'regular',
 									textAlign: 'center',
@@ -127,7 +127,7 @@ const Info = () => {
 							setSelected={val => setSelectedBurrough(val)}
 							data={burrough}
 							save="value"
-							placeholder='Select Burrough'
+							placeholder="Select Burrough"
 							boxStyles={{
 								borderColor: '#F2F2F2',
 								borderRadius: 10,
@@ -141,7 +141,7 @@ const Info = () => {
 							setSelected={val => setSelectedGender(val)}
 							data={gender}
 							save="value"
-							placeholder='Gender'
+							placeholder="Gender"
 							boxStyles={{
 								borderColor: '#F2F2F2',
 								borderRadius: 10,
@@ -162,6 +162,6 @@ const Info = () => {
 			</TouchableWithoutFeedback>
 		</KeyboardAvoidingView>
 	);
-}
+};
 
 export default Info;
