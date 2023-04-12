@@ -27,7 +27,7 @@ const infoStyles = StyleSheet.create({
 	header: {
 		fontSize: 20,
 		fontWeight: 'bold',
-		marginTop: 10,
+		marginTop: 5,
 		marginBottom: 20,
 		alignContent: 'center',
 		justifyContent: 'center',
