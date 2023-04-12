@@ -37,12 +37,10 @@ const resourceData = [
 const ResourceDisplay = () => {
 	return (
 		<View>
-			<View style={{backgroundColor: 'white', alignItems: 'center', paddingTop: 10, paddingBottom: 5}}>
-				<Text style={{fontSize: 30, fontFamily: 'Montserrat_500Medium'}}>Resources</Text>
+			<View style={{ backgroundColor: 'white', alignItems: 'center', paddingTop: 10, paddingBottom: 5 }}>
+				<Text style={{ fontSize: 30, fontFamily: 'Montserrat_500Medium' }}>Resources</Text>
 			</View>
-			<View>
-
-			</View>
+			<View></View>
 			<ScrollView style={resourceStyles.container}>
 				{resourceData.map((r, id) => (
 					<Resource resource={r} key={id} />

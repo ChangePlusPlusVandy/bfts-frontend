@@ -8,17 +8,16 @@ import Moment from 'moment';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export default function Post({ post }) {
-
 	const today = new Moment();
 
-    const day = today.format("M/DD/YY");
-	const time = today.format("h:mm a");
+	const day = today.format('M/DD/YY');
+	const time = today.format('h:mm a');
 
 	const PostHeader = ({ post }) => (
 		<View style={{ flexDirection: 'row', justifyContent: 'space-between', margin: 5, alignItems: 'center' }}>
 			<View style={{ flexDirection: 'row', alignItems: 'center' }}>
 				{/* <Image source={{ uri: post.profile_picture }} style={styles.profile_pic} /> */}
-				<Ionicons name="person-outline" size={30} color="blue" style={{marginLeft: 11, marginTop: 2}} />
+				<Ionicons name="person-outline" size={30} color="blue" style={{ marginLeft: 11, marginTop: 2 }} />
 				<Text style={{ color: 'black', marginLeft: 5, fontWeight: '600' }}> {post.user} </Text>
 			</View>
 		</View>
@@ -28,9 +27,9 @@ export default function Post({ post }) {
 		<View style={{ width: '100%', height: 150 }}>
 			<PostText text="Today has been a successful day  dasjkhdkjashdk dkhasjkdsa ddsa" />
 			<View style={postTextStyles.timeView}>
-                <Text style={{ color: "grey", fontWeight: "300", fontSize: 15 }}>{time + " - "}</Text>
-                <Text style={{ color: "grey",  fontWeight: "300", fontSize: 15 }}>{day}</Text>
-            </View>
+				<Text style={{ color: 'grey', fontWeight: '300', fontSize: 15 }}>{time + ' - '}</Text>
+				<Text style={{ color: 'grey', fontWeight: '300', fontSize: 15 }}>{day}</Text>
+			</View>
 		</View>
 	);
 
@@ -40,7 +39,7 @@ export default function Post({ post }) {
 			<PostImage post={post} />
 
 			<PostFooter post={post} />
-			<View style={{backgroundColor: '#D3D3D3', width: "100%", borderWidth: 0.5, marginTop: 5}}></View>
+			<View style={{ backgroundColor: '#D3D3D3', width: '100%', borderWidth: 0.5, marginTop: 5 }}></View>
 		</View>
 	);
 }

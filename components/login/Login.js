@@ -22,11 +22,13 @@ export default function Login() {
 			return;
 		}
 		try {
-			console.log("Trying to sign in")
-			signInWithEmailAndPassword(auth, email, password).then((creds) => {
-				console.log("Signed in")
-				navigation.navigate("Home")
-			}).catch((error) => alert(error.message));
+			console.log('Trying to sign in');
+			signInWithEmailAndPassword(auth, email, password)
+				.then(creds => {
+					console.log('Signed in');
+					navigation.navigate('Home');
+				})
+				.catch(error => alert(error.message));
 		} catch (error) {
 			setError(error.message);
 		}
