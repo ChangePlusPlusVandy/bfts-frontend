@@ -1,19 +1,13 @@
 import { StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './components/login/Login';
 import Home from './components/home/Home';
 import Register from './components/register/Register';
 import Landing from './components/landing/Landing';
-import Info from './components/info/Info';
-import {
-	useFonts,
-	Montserrat_900Black,
-	Montserrat_700Bold,
-	Montserrat_400Regular,
-	Montserrat_500Medium,
-} from '@expo-google-fonts/montserrat';
-import Community from './components/community/Community';
+import Info from "./components/info/Info";
+import { useFonts, Montserrat_900Black, Montserrat_700Bold, Montserrat_400Regular, Montserrat_500Medium, Montserrat_100Thin } from '@expo-google-fonts/montserrat';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,7 +17,12 @@ export default function App() {
 		Montserrat_900Black,
 		Montserrat_400Regular,
 		Montserrat_500Medium,
+		Montserrat_100Thin
 	});
+
+	while (!fontsLoaded) {
+		return (<View></View>)
+	}
 
 	return (
 		<NavigationContainer>
@@ -52,7 +51,6 @@ export default function App() {
 					component={Home}
 					options={{ headerShown: false, gestureEnabled: false }}
 				/>
-
 				<Stack.Screen
 					name="Info"
 					title="Info"
