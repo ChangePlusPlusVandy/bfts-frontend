@@ -5,7 +5,6 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 import ProfileCard from './ProfileCard';
 
-
 const profiles = [
 	{
 		name: 'John Doe',
