@@ -5,7 +5,7 @@ import Community from '../community/Community';
 import AddClient from '../addClient/AddClient';
 import Header from '../header/Header';
 import { BFTS_BLUE } from '../../constants';
-import Profile from '../profile/Profile';
+import Profile from '../Profile/Profile';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ResourceDisplay from '../resources/ResourceDisplay';
 
