@@ -13,7 +13,7 @@ const Resource = ({ resource }) => {
 			<View style={resourceStyles.bottomInfoContainer}>
 				<ResourceInfo icon="search" info={resource.website} clickable={true} />
 				<ResourceInfo icon="person-outline" info={resource.contactName} clickable={false} />
-				<ResourceInfo icon="call-outline" info={resource.contactNumber} clickable={true}/>
+				<ResourceInfo icon="call-outline" info={resource.contactNumber} clickable={true} />
 			</View>
 		</View>
 	);

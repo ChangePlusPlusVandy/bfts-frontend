@@ -18,7 +18,7 @@ const profileStyles = StyleSheet.create({
 		padding: 5,
 		borderColor: BFTS_BLUE,
 		borderWidth: 1,
-		marginTop:5,
+		marginTop: 5,
 	},
 	addClientBtn: {
 		backgroundColor: BFTS_BLUE,

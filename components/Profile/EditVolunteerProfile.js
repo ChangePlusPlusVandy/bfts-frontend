@@ -27,7 +27,6 @@ const EditVolunteerProfile = () => {
 	const [editSelectedBurrough, setEditSelectedBurrough] = useState(false);
 	const [editelectedGender, setEditSelectedGender] = useState(false);
 
-
 	const [error, setError] = useState('');
 	const [loading, setLoading] = useState(false);
 
@@ -90,80 +89,98 @@ const EditVolunteerProfile = () => {
 								Edit Profile
 							</Text>
 						</View>
-						<View style={infoStyles.inputField}  backgroundColor={editFirst ? BFTS_WHITE : 'lightgrey'}>
-                            <View style={{width: '85%'}}>
-                                <TextInput
-                                    placeholder="First Name"
-                                    style={{ padding: 8, width: 270}}
-                                    onChangeText={text => setFirstName(text)}
-                                    editable={editFirst}
-                                />
-                            </View>
-                            <TouchableOpacity style={[{paddingRight: 10}]} onPress={() => {setEditFirst(true)}}>
-                                <Ionicons name="pencil" size={25} color={editFirst ? 'grey' : BFTS_BLUE}></Ionicons>
-                            </TouchableOpacity>
-
+						<View style={infoStyles.inputField} backgroundColor={editFirst ? BFTS_WHITE : 'lightgrey'}>
+							<View style={{ width: '85%' }}>
+								<TextInput
+									placeholder="First Name"
+									style={{ padding: 8, width: 270 }}
+									onChangeText={text => setFirstName(text)}
+									editable={editFirst}
+								/>
+							</View>
+							<TouchableOpacity
+								style={[{ paddingRight: 10 }]}
+								onPress={() => {
+									setEditFirst(true);
+								}}>
+								<Ionicons name="pencil" size={25} color={editFirst ? 'grey' : BFTS_BLUE}></Ionicons>
+							</TouchableOpacity>
 						</View>
-						<View style={infoStyles.inputField}  backgroundColor={editLast ? BFTS_WHITE : 'lightgrey'}>
-                            <View style={{width: '85%'}}>
-                                <TextInput
-                                    placeholder="Last Name"
-                                    style={{ padding: 8, width: 270}}
-                                    onChangeText={text => setLastName(text)}
-                                    editable={editLast}
-                                />
-                            </View>
-                            <TouchableOpacity style={[{paddingRight: 10}]} onPress={() => {setEditLast(true)}}>
-                                <Ionicons name="pencil" size={25} color={editLast ? 'grey' : BFTS_BLUE}></Ionicons>
-                            </TouchableOpacity>
-
-						</View>
-
-						<View style={infoStyles.inputField}  backgroundColor= {editRace ? BFTS_WHITE : 'lightgrey'}>
-                            <View style={{width: '85%'}}>
-                                <TextInput
-                                    placeholder="Race"
-                                    style={{ padding: 8, width: 270}}
-                                    onChangeText={text => setRace(text)}
-                                    editable={editRace}
-                                />
-                            </View>
-                            <TouchableOpacity style={[{paddingRight: 10}]} onPress={() => {setEditRace(true)}}>
-                                <Ionicons name="pencil" size={25} color={editRace ? 'grey' : BFTS_BLUE}></Ionicons>
-                            </TouchableOpacity>
-
+						<View style={infoStyles.inputField} backgroundColor={editLast ? BFTS_WHITE : 'lightgrey'}>
+							<View style={{ width: '85%' }}>
+								<TextInput
+									placeholder="Last Name"
+									style={{ padding: 8, width: 270 }}
+									onChangeText={text => setLastName(text)}
+									editable={editLast}
+								/>
+							</View>
+							<TouchableOpacity
+								style={[{ paddingRight: 10 }]}
+								onPress={() => {
+									setEditLast(true);
+								}}>
+								<Ionicons name="pencil" size={25} color={editLast ? 'grey' : BFTS_BLUE}></Ionicons>
+							</TouchableOpacity>
 						</View>
 
-						<View style={infoStyles.inputField}  backgroundColor={editBackground ? BFTS_WHITE : 'lightgrey'}>
-                            <View style={{width: '85%'}}>
-                                <TextInput
-                                    placeholder="Background"
-                                    style={{ padding: 8, width: 270}}
-                                    onChangeText={text => setBackgroundName(text)}
-                                    editable={editBackground}
-                                />
-                            </View>
-                            <TouchableOpacity style={[{paddingRight: 10}]} onPress={() => {setEditBackground(true)}}>
-                                <Ionicons name="pencil" size={25} color={editBackground ? 'grey' : BFTS_BLUE}></Ionicons>
-                            </TouchableOpacity>
-
+						<View style={infoStyles.inputField} backgroundColor={editRace ? BFTS_WHITE : 'lightgrey'}>
+							<View style={{ width: '85%' }}>
+								<TextInput
+									placeholder="Race"
+									style={{ padding: 8, width: 270 }}
+									onChangeText={text => setRace(text)}
+									editable={editRace}
+								/>
+							</View>
+							<TouchableOpacity
+								style={[{ paddingRight: 10 }]}
+								onPress={() => {
+									setEditRace(true);
+								}}>
+								<Ionicons name="pencil" size={25} color={editRace ? 'grey' : BFTS_BLUE}></Ionicons>
+							</TouchableOpacity>
 						</View>
 
-						<View style={infoStyles.inputField}  backgroundColor={editPhoneNum ? BFTS_WHITE : 'lightgrey'}>
-                            <View style={{width: '85%'}}>
-                                <TextInput
-                                    placeholder="Phone Number"
-                                    style={{ padding: 8, width: 270}}
-                                    onChangeText={text => setEditPhoneNum(text)}
-                                    editable={editPhoneNum}
-                                />
-                            </View>
-                            <TouchableOpacity style={[{paddingRight: 10}]} onPress={() => {setEditPhoneNum(true)}}>
-                                <Ionicons name="pencil" size={25} color={editPhoneNum ? 'grey' : BFTS_BLUE}></Ionicons>
-                            </TouchableOpacity>
-
+						<View style={infoStyles.inputField} backgroundColor={editBackground ? BFTS_WHITE : 'lightgrey'}>
+							<View style={{ width: '85%' }}>
+								<TextInput
+									placeholder="Background"
+									style={{ padding: 8, width: 270 }}
+									onChangeText={text => setBackgroundName(text)}
+									editable={editBackground}
+								/>
+							</View>
+							<TouchableOpacity
+								style={[{ paddingRight: 10 }]}
+								onPress={() => {
+									setEditBackground(true);
+								}}>
+								<Ionicons
+									name="pencil"
+									size={25}
+									color={editBackground ? 'grey' : BFTS_BLUE}></Ionicons>
+							</TouchableOpacity>
 						</View>
-					
+
+						<View style={infoStyles.inputField} backgroundColor={editPhoneNum ? BFTS_WHITE : 'lightgrey'}>
+							<View style={{ width: '85%' }}>
+								<TextInput
+									placeholder="Phone Number"
+									style={{ padding: 8, width: 270 }}
+									onChangeText={text => setEditPhoneNum(text)}
+									editable={editPhoneNum}
+								/>
+							</View>
+							<TouchableOpacity
+								style={[{ paddingRight: 10 }]}
+								onPress={() => {
+									setEditPhoneNum(true);
+								}}>
+								<Ionicons name="pencil" size={25} color={editPhoneNum ? 'grey' : BFTS_BLUE}></Ionicons>
+							</TouchableOpacity>
+						</View>
+
 						<SelectList
 							setSelected={val => setSelectedBurrough(val)}
 							data={burrough}

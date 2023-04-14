@@ -45,7 +45,9 @@ const Profile = () => {
 				<Text style={{ fontFamily: 'Montserrat_700Bold', fontSize: 27 }}>Shivam Vohra</Text>
 				<Text style={{ fontFamily: 'Montserrat_400Regular', fontSize: 17 }}>Volunteer</Text>
 				<TouchableOpacity style={[profileStyles.editProfileBtn, { marginRight: 5 }]}>
-					<Text style={{ fontFamily: 'Montserrat_400Regular', color: BFTS_BLUE, fontSize: 14 }}>Edit Profile</Text>
+					<Text style={{ fontFamily: 'Montserrat_400Regular', color: BFTS_BLUE, fontSize: 14 }}>
+						Edit Profile
+					</Text>
 				</TouchableOpacity>
 			</View>
 			<View
@@ -55,7 +57,7 @@ const Profile = () => {
 					flexDirection: 'row',
 					alignContent: 'space-between',
 					justifyContent: 'center',
-					height: '8%'
+					height: '8%',
 				}}>
 				<TouchableOpacity style={[profileStyles.editProfileBtn, { marginRight: 5 }]}>
 					<Text style={{ fontFamily: 'Montserrat_700Bold', color: 'black' }}>Edit Profile</Text>

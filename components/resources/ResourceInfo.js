@@ -14,14 +14,19 @@ const ResourceInfo = ({ icon, info, clickable }) => {
 			/>
 			<TouchableOpacity disabled={!clickable}>
 				<Text style={{ fontFamily: 'Montserrat_500Medium', color: 'black' }}>
-					{typeof(info) === 'number' && info.toString().length == 10 ? 
-					// format as a phone number
-						'(' + ((info/(10**7))|0) + ') ' + ((info % 10**7)/(10**4)|0) + '-' + ((info%(10**4))) 
+					{typeof info === 'number' && info.toString().length == 10
+						? // format as a phone number
+						  '(' +
+						  ((info / 10 ** 7) | 0) +
+						  ') ' +
+						  (((info % 10 ** 7) / 10 ** 4) | 0) +
+						  '-' +
+						  (info % 10 ** 4)
 						: info}
 				</Text>
 			</TouchableOpacity>
 		</View>
-	)
+	);
 };
 
 export default ResourceInfo;

@@ -58,7 +58,7 @@ const infoStyles = StyleSheet.create({
 		backgroundColor: '#F2F2F2',
 		marginBottom: 15,
 		borderWidth: 1,
-		borderColor: 'black'
+		borderColor: 'black',
 	},
 	selectList: {
 		flexDirection: 'row',
