@@ -6,6 +6,7 @@ import Login from './components/login/Login';
 import Home from './components/home/Home';
 import Register from './components/register/Register';
 import Landing from './components/landing/Landing';
+import AddClient from './components/addClient/AddClient';
 import Info from './components/info/Info';
 import {
 	useFonts,
@@ -58,6 +59,13 @@ export default function App() {
 					component={Home}
 					options={{ headerShown: false, gestureEnabled: false }}
 				/>
+				<Stack.Screen
+					name="AddClient"
+					title="AddClient"
+					component={AddClient}
+					options={{ headerShown: false, gestureEnabled: false }}
+				/>
+
 				<Stack.Screen
 					name="Info"
 					title="Info"

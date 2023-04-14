@@ -1,6 +1,8 @@
 import { Text, View, TouchableOpacity, ScrollView } from 'react-native';
 import profileStyles from './ProfileStyles';
+import AddClient from '../addClient/AddClient';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { useNavigation } from '@react-navigation/native';
 import ProfileCard from './ProfileCard';
 import { BFTS_BLUE, BFTS_WHITE } from '../../constants';
 
@@ -32,6 +34,8 @@ const profiles = [
 ];
 
 const Profile = () => {
+	const navigation = useNavigation();
+
 	return (
 		<View style={{ backgroundColor: 'white', height: '100%', alignItems: 'center', padding: 10, flex: 1 }}>
 			{/* <View style={{alignContent: 'center', alignItems: 'center'}}>
@@ -53,8 +57,13 @@ const Profile = () => {
 					justifyContent: 'center',
 					height: '8%'
 				}}>
-				<TouchableOpacity style={[profileStyles.addClientBtn, { marginLeft: 5 }]}>
-					<Text style={{ fontFamily: 'Montserrat_700Bold', color: 'white', fontSize:19 }}>Add Client</Text>
+				<TouchableOpacity style={[profileStyles.editProfileBtn, { marginRight: 5 }]}>
+					<Text style={{ fontFamily: 'Montserrat_700Bold', color: 'black' }}>Edit Profile</Text>
+				</TouchableOpacity>
+				<TouchableOpacity
+					onPress={() => navigation.navigate('AddClient')}
+					style={[profileStyles.editProfileBtn, { marginLeft: 5 }]}>
+					<Text style={{ fontFamily: 'Montserrat_700Bold', color: 'black' }}>Add Client</Text>
 				</TouchableOpacity>
 			</View>
 

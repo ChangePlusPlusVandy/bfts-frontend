@@ -4,7 +4,6 @@ import { initializeApp } from 'firebase/app';
 // https://firebase.google.com/docs/web/setup#available-libraries
 import 'firebase/auth';
 import { getAuth } from 'firebase/auth';
-// import { API_KEY, AUTH_DOMAIN, PROJECT_ID, STORAGE_BUCKET, MESSAGING_SENDER_ID, FIREBASE_APP_ID } from '@env';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
