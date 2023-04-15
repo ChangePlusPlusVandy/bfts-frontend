@@ -11,7 +11,7 @@ const profileStyles = StyleSheet.create({
 	editProfileBtn: {
 		backgroundColor: BFTS_WHITE,
 		borderRadius: 5,
-		width: '45%',
+		width: '80%',
 		alignContent: 'center',
 		alignItems: 'center',
 		justifyContent: 'center',

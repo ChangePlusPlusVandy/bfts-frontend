@@ -4,16 +4,44 @@ import { useNavigation } from '@react-navigation/native';
 import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { SelectList } from 'react-native-dropdown-select-list';
 import addClientStyles from './AddClientStyle';
+import { auth } from '../../firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 
-export default function AddClient() {
+const AddClient = () => {
 	const [race, setRace] = useState(null);
 	const [background, setBackground] = useState(null);
-	const [phoneNum, setPhoneNum] = useState(null);
+	const [pronouns, setPronouns] = useState(null);
 	const [firstName, setFirstName] = useState(null);
 	const [lastName, setLastName] = useState(null);
 	const [livingSit, setLivingSit] = useState(null);
 	const [selectedBurrough, setSelectedBurrough] = useState(null);
 	const [selectedGender, setSelectedGender] = useState(null);
+
+	const [token, setToken] = useState(null);
+
+	auth.onAuthStateChanged(user => {
+		if (user) {
+			console.log('Getting token');
+			user.getIdToken().then(tok => {
+				setToken(tok);
+			});
+		}
+	});
+
+	const requestOptions = {
+		method: 'POST',
+		headers: { 'Content-Type': 'application/json', bearer: token },
+		body: JSON.stringify({
+			name: firstName + ' ' + lastName,
+			gender: gender,
+			birthday: Date.now(),
+			pronouns: pronouns,
+			location: selectedBurrough,
+			livingSituation: livingSit,
+			background: background,
+			gender: selectedGender,
+		}),
+	};
 
 	const [error, setError] = useState('');
 	const [loading, setLoading] = useState(false);
@@ -40,7 +68,7 @@ export default function AddClient() {
 			gender === null ||
 			race === null ||
 			background === null ||
-			phoneNum === null ||
+			pronouns === null ||
 			livingSit === null ||
 			firstName === null ||
 			lastName === null ||
@@ -52,10 +80,21 @@ export default function AddClient() {
 		}
 
 		try {
-			// Calling fetch
-			navigation.navigate('Profile1');
+			fetch('https://bfts-backend.herokuapp.com/clients/create', requestOptions).then(async response => {
+				const isJson = response.headers.get('content-type')?.includes('application/json');
+				const data = isJson && (await response.json());
+
+				if (!response.ok) {
+					const err = (data && data.message) || response.status;
+					return Promise.reject(err);
+				}
+
+				alert('Client successfully added.');
+				navigation.navigate('Profile1');
+			});
 		} catch (error) {
-			alert('Failed to submit information.');
+			console.log('Failed to submit client');
+			alert('Client failed to submit. Try again later.');
 		}
 	};
 
@@ -69,7 +108,7 @@ export default function AddClient() {
 								style={{
 									padding: 10,
 									width: 400,
-									fontFamily: 'Tenor Sans',
+									fontFamily: 'Montserrat_400Regular',
 									fontSize: 33,
 									fontWeight: 'regular',
 									textAlign: 'center',
@@ -110,9 +149,9 @@ export default function AddClient() {
 
 						<View style={addClientStyles.inputField}>
 							<TextInput
-								placeholder="Phone number"
+								placeholder="Pronouns"
 								style={{ padding: 8, width: 270 }}
-								onChangeText={text => setPhoneNum(text)}
+								onChangeText={text => setPronouns(text)}
 							/>
 						</View>
 						<View style={addClientStyles.inputField}>
@@ -160,4 +199,6 @@ export default function AddClient() {
 			</TouchableWithoutFeedback>
 		</KeyboardAvoidingView>
 	);
-}
+};
+
+export default AddClient;
