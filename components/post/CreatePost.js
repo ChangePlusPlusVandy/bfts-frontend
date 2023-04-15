@@ -22,52 +22,58 @@ const CreatePost = () => {
 	const [id, setId] = useState(null);
 	const [email, setEmail] = useState(null);
 
-	auth.onAuthStateChanged((user) => {
+	auth.onAuthStateChanged(user => {
 		if (user) {
-			console.log("Getting token")
-			user.getIdToken().then((tok) => { setToken(tok); setId(user.uid); setEmail(user.email)});
+			console.log('Getting token');
+			user.getIdToken().then(tok => {
+				setToken(tok);
+				setId(user.uid);
+				setEmail(user.email);
+			});
 		}
 	});
 
 	const requestOptions = {
-		method: "POST",
-		headers: {"Content-Type": "application/json", "bearer": token},
+		method: 'POST',
+		headers: { 'Content-Type': 'application/json', bearer: token },
 		body: JSON.stringify({
 			poster: id,
 			text: text,
-			name: email
-		})
-	}
+			name: email,
+		}),
+	};
 
-	console.log(requestOptions)
+	console.log(requestOptions);
 
 	const styles = StyleSheet.create({
 		container: {
 			flex: 1,
 			backgroundColor: '#fff',
 			width: '100%',
-			paddingTop: 50
+			paddingTop: 50,
 		},
 	});
 
 	const handleSubmit = () => {
 		if (text === null) {
-			alert("Please fill out all field.");
+			alert('Please fill out all field.');
 		} else {
-			fetch("https://bfts-backend.herokuapp.com/posts/create", requestOptions).then(async (response) => {
-				const isJson = response.headers.get("content-type")?.includes("application/json");
-				const data = isJson && (await response.json());
+			fetch('https://bfts-backend.herokuapp.com/posts/create', requestOptions)
+				.then(async response => {
+					const isJson = response.headers.get('content-type')?.includes('application/json');
+					const data = isJson && (await response.json());
 
-				if (!response.ok) {
-					const err = (data && data.message) || response.status;
-					return Promise.reject(err);
-				}
+					if (!response.ok) {
+						const err = (data && data.message) || response.status;
+						return Promise.reject(err);
+					}
 
-				alert("Successfully created post.")
-			}).catch((error) => {
-				console.log(error);
-				alert("Failed to submit post. Try again later.");
-			});
+					alert('Successfully created post.');
+				})
+				.catch(error => {
+					console.log(error);
+					alert('Failed to submit post. Try again later.');
+				});
 		}
 	};
 
@@ -85,12 +91,19 @@ const CreatePost = () => {
 		<ScrollView style={styles.container}>
 			<TouchableWithoutFeedback>
 				<StatusBar />
-				<View style={{ backgroundColor: 'white', alignItems: 'center', paddingTop: 10, paddingBottom: 5, marginTop: 12, marginBottom: 12 }}>
+				<View
+					style={{
+						backgroundColor: 'white',
+						alignItems: 'center',
+						paddingTop: 10,
+						paddingBottom: 5,
+						marginTop: 12,
+						marginBottom: 12,
+					}}>
 					<Text style={{ fontSize: 30, fontFamily: 'Montserrat_500Medium' }}>Create a Post</Text>
 				</View>
 				<PostHeader />
-				<View>
-				</View>
+				<View></View>
 				<View style={{ width: '100%', height: 150, width: '100%', paddingLeft: 10 }}>
 					<TextInput
 						placeholder="What's happening?"
@@ -107,11 +120,18 @@ const CreatePost = () => {
 							<Text style={{ color: 'grey', fontWeight: '300', fontSize: 15 }}>{day}</Text>
 						</View>
 					</View>
-					<View style={{alignContent: 'center', height: "100%", alignItems: 'center', width: "100%", marginTop: 30}}>
+					<View
+						style={{
+							alignContent: 'center',
+							height: '100%',
+							alignItems: 'center',
+							width: '100%',
+							marginTop: 30,
+						}}>
 						<TouchableOpacity
 							style={{
-								width: "50%",
-								height: "30%",
+								width: '50%',
+								height: '30%',
 								backgroundColor: BFTS_BLUE,
 								borderRadius: 15,
 								alignItems: 'center',

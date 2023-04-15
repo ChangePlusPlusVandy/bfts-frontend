@@ -19,29 +19,29 @@ const AddClient = () => {
 
 	const [token, setToken] = useState(null);
 
-	auth.onAuthStateChanged((user) => {
+	auth.onAuthStateChanged(user => {
 		if (user) {
-			console.log("Getting token")
-			user.getIdToken().then((tok) => { setToken(tok);});
+			console.log('Getting token');
+			user.getIdToken().then(tok => {
+				setToken(tok);
+			});
 		}
 	});
 
 	const requestOptions = {
-		method: "POST",
-		headers: { "Content-Type": "application/json", bearer: token },
+		method: 'POST',
+		headers: { 'Content-Type': 'application/json', bearer: token },
 		body: JSON.stringify({
-			name: firstName + " " + lastName,
+			name: firstName + ' ' + lastName,
 			gender: gender,
 			birthday: Date.now(),
 			pronouns: pronouns,
 			location: selectedBurrough,
 			livingSituation: livingSit,
 			background: background,
-			gender: selectedGender
-		})
-	}
-
-
+			gender: selectedGender,
+		}),
+	};
 
 	const [error, setError] = useState('');
 	const [loading, setLoading] = useState(false);
@@ -80,8 +80,8 @@ const AddClient = () => {
 		}
 
 		try {
-			fetch("https://bfts-backend.herokuapp.com/clients/create", requestOptions).then(async (response) => {
-				const isJson = response.headers.get("content-type")?.includes("application/json");
+			fetch('https://bfts-backend.herokuapp.com/clients/create', requestOptions).then(async response => {
+				const isJson = response.headers.get('content-type')?.includes('application/json');
 				const data = isJson && (await response.json());
 
 				if (!response.ok) {
@@ -89,13 +89,12 @@ const AddClient = () => {
 					return Promise.reject(err);
 				}
 
-				alert("Client successfully added.");
+				alert('Client successfully added.');
 				navigation.navigate('Profile1');
-			})
-			
+			});
 		} catch (error) {
-			console.log("Failed to submit client");
-			alert("Client failed to submit. Try again later.");
+			console.log('Failed to submit client');
+			alert('Client failed to submit. Try again later.');
 		}
 	};
 
@@ -200,6 +199,6 @@ const AddClient = () => {
 			</TouchableWithoutFeedback>
 		</KeyboardAvoidingView>
 	);
-}
+};
 
 export default AddClient;

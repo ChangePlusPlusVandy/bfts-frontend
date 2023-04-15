@@ -27,7 +27,7 @@ export default function Login() {
 			await signInWithEmailAndPassword(auth, email, password);
 			const idToken = await auth.currentUser.getIdToken();
 			console.log(idToken);
-			navigation.navigate("Home");
+			navigation.navigate('Home');
 			// signInWithEmailAndPassword(auth, email, password)
 			// 	.then(creds => {
 			// 		console.log('Signed in');
