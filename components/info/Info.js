@@ -95,7 +95,7 @@ const Info = ({navigation, route}) => {
                     return Promise.reject(err);
 				}
 				console.log("Successfully created user.");
-				navigation.navigate('Home');
+				navigation.navigate('Home', {token: token, id: id});
 			})
 			.catch((error) => {
 				console.log("Did not create volunteer successfully.")

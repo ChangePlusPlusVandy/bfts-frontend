@@ -18,6 +18,7 @@ import {
 } from '@expo-google-fonts/montserrat';
 import EditVolunteerProfile from './components/profile/EditVolunteerProfile';
 import EditClientProfile from './components/profile/EditClientProfile';
+import CreatePost from './components/post/CreatePost';
 
 const Stack = createNativeStackNavigator();
 
@@ -84,6 +85,12 @@ export default function App() {
 					name="EditClientProfile"
 					title="EditClientProfile"
 					component={EditClientProfile}
+					options={{ headerShown: false, gestureEnabled: true }}
+				/>
+				<Stack.Screen
+					name="CreatePost"
+					title="CreatePost"
+					component={CreatePost}
 					options={{ headerShown: false, gestureEnabled: true }}
 				/>
 			</Stack.Navigator>

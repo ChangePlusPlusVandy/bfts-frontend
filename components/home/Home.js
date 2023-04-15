@@ -8,6 +8,7 @@ import { BFTS_BLUE } from '../../constants';
 import Profile from '../profile/Profile';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ResourceDisplay from '../resources/ResourceDisplay';
+import CreatePost from '../post/CreatePost';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -136,7 +137,7 @@ const Home = () => {
 					headerShown: false,
 				}}
 			/>
-			<Tab.Screen name="Plus" component={Community} options={{ headerShown: false }} />
+			<Tab.Screen name="Plus" component={CreatePost} options={{ headerShown: false }} />
 			<Tab.Screen
 				name="Profile"
 				component={ProfileNav}
