@@ -16,6 +16,8 @@ import {
 	Montserrat_500Medium,
 	Montserrat_100Thin,
 } from '@expo-google-fonts/montserrat';
+import EditVolunteerProfile from './components/profile/EditVolunteerProfile';
+import EditClientProfile from './components/profile/EditClientProfile';
 
 const Stack = createNativeStackNavigator();
 
@@ -63,7 +65,7 @@ export default function App() {
 					name="AddClient"
 					title="AddClient"
 					component={AddClient}
-					options={{ headerShown: false, gestureEnabled: false }}
+					options={{ headerShown: false, gestureEnabled: true }}
 				/>
 
 				<Stack.Screen
@@ -71,6 +73,18 @@ export default function App() {
 					title="Info"
 					component={Info}
 					options={{ headerShown: false, gestureEnabled: false }}
+				/>
+				<Stack.Screen
+					name="EditVolProfile"
+					title="EditVolProfile"
+					component={EditVolunteerProfile}
+					options={{ headerShown: false, gestureEnabled: true }}
+				/>
+				<Stack.Screen
+					name="EditClientProfile"
+					title="EditClientProfile"
+					component={EditClientProfile}
+					options={{ headerShown: false, gestureEnabled: true }}
 				/>
 			</Stack.Navigator>
 		</NavigationContainer>

@@ -5,20 +5,48 @@ import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handl
 import { SelectList } from 'react-native-dropdown-select-list';
 import infoStyles from './InfoStyle';
 
-const Info = () => {
+const Info = ({navigation, route}) => {
 	const [race, setRace] = useState(null);
 	const [background, setBackground] = useState(null);
 	const [phoneNum, setPhoneNum] = useState(null);
 	const [firstName, setFirstName] = useState(null);
 	const [lastName, setLastName] = useState(null);
-	const [livingSit, setLivingSit] = useState(null);
+	const [pronouns, setPronouns] = useState(null);
 	const [selectedBurrough, setSelectedBurrough] = useState(null);
 	const [selectedGender, setSelectedGender] = useState(null);
+
+
+	const id = route.params.id;
+	const token = route.params.token;
+	const emailAdd = route.params.email;
+
+	console.log(id)
+	console.log(token)
+	console.log(emailAdd)
 
 	const [error, setError] = useState('');
 	const [loading, setLoading] = useState(false);
 
-	const navigation = useNavigation();
+	//const navigation = useNavigation();
+
+	const requestOptions = {
+		method: "POST",
+		headers: { "Content-Type": "application/json", "bearer": token },
+		body: JSON.stringify({
+			name: firstName + " " + lastName,
+			firebaseid: id,
+			pronouns: pronouns,
+			race: race,
+			birthday: Date.now(),
+			location: selectedBurrough,
+			phone: phoneNum,
+			email: emailAdd,
+			vaccination: true,
+			startdate: Date.now(),
+			startlocation: selectedBurrough,
+			background: background
+		})
+	}
 
 	const burrough = [
 		{ key: '1', value: 'Bronx' },
@@ -41,7 +69,7 @@ const Info = () => {
 			race === null ||
 			background === null ||
 			phoneNum === null ||
-			livingSit === null ||
+			pronouns === null ||
 			firstName === null ||
 			lastName === null ||
 			selectedBurrough === null ||
@@ -53,7 +81,27 @@ const Info = () => {
 
 		try {
 			// Calling fetch
-			navigation.navigate('Home');
+
+			console.log(requestOptions)
+			
+			fetch("https://bfts-backend.herokuapp.com/volunteers/create", requestOptions).then(async (response) => {
+				const isJson = response.headers.get("content-type")?.includes("application/json");
+				const data = isJson && (await response.json());
+
+				console.log("Awaiting response");
+
+				if (!response.ok) {
+					const err = (data && data.message) || response.status;
+                    return Promise.reject(err);
+				}
+				console.log("Successfully created user.");
+				navigation.navigate('Home');
+			})
+			.catch((error) => {
+				console.log("Did not create volunteer successfully.")
+				console.log(error);
+			})
+
 		} catch (error) {
 			alert('Failed to submit information.');
 		}
@@ -119,7 +167,7 @@ const Info = () => {
 							<TextInput
 								placeholder="Pronouns"
 								style={{ padding: 8, width: 270 }}
-								onChangeText={text => setLivingSit(text)}
+								onChangeText={text => setPronouns(text)}
 							/>
 						</View>
 

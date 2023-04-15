@@ -6,6 +6,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { StatusBar } from 'expo-status-bar';
 import { BFTS_BLUE, BFTS_WHITE } from '../../constants';
 import postTextStyles from './PostTextStyles';
+import { auth } from '../../firebase';
 
 import Moment from 'moment';
 

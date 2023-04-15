@@ -1,10 +1,14 @@
 import { View, Text } from 'react-native';
 import cardStyles from './ProfileCardStyles';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
 
 export default function ProfileCard({ profile }) {
+
+	const navigation = useNavigation();
+
 	return (
-		<TouchableOpacity style={cardStyles.main} onPress={() => {}}>
+		<TouchableOpacity style={cardStyles.main} onPress={() => {navigation.navigate("EditClientProfile")}}>
 			<View>
 				<View style={cardStyles.nameView}>
 					<Text>

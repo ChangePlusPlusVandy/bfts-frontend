@@ -5,15 +5,30 @@ import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handl
 import { SelectList } from 'react-native-dropdown-select-list';
 import addClientStyles from './AddClientStyle';
 
-export default function AddClient() {
+const AddClient = () => {
 	const [race, setRace] = useState(null);
 	const [background, setBackground] = useState(null);
-	const [phoneNum, setPhoneNum] = useState(null);
+	const [pronouns, setPronouns] = useState(null);
 	const [firstName, setFirstName] = useState(null);
 	const [lastName, setLastName] = useState(null);
 	const [livingSit, setLivingSit] = useState(null);
 	const [selectedBurrough, setSelectedBurrough] = useState(null);
 	const [selectedGender, setSelectedGender] = useState(null);
+
+
+	const requestOptions = {
+		method: "POST",
+		headers: { "Content-Type": "application/json" },
+		body: JSON.stringify({
+			name: firstName + " " + lastName,
+			gender: gender,
+			birthday: Date.now(),
+			pronouns: pronouns,
+			location: selectedBurrough,
+			livingSituation: livingSit,
+			background: background,
+		})
+	}
 
 	const [error, setError] = useState('');
 	const [loading, setLoading] = useState(false);
@@ -40,7 +55,7 @@ export default function AddClient() {
 			gender === null ||
 			race === null ||
 			background === null ||
-			phoneNum === null ||
+			pronouns === null ||
 			livingSit === null ||
 			firstName === null ||
 			lastName === null ||
@@ -69,7 +84,7 @@ export default function AddClient() {
 								style={{
 									padding: 10,
 									width: 400,
-									fontFamily: 'Tenor Sans',
+									fontFamily: 'Montserrat_400Regular',
 									fontSize: 33,
 									fontWeight: 'regular',
 									textAlign: 'center',
@@ -110,9 +125,9 @@ export default function AddClient() {
 
 						<View style={addClientStyles.inputField}>
 							<TextInput
-								placeholder="Phone number"
+								placeholder="Pronouns"
 								style={{ padding: 8, width: 270 }}
-								onChangeText={text => setPhoneNum(text)}
+								onChangeText={text => setPronouns(text)}
 							/>
 						</View>
 						<View style={addClientStyles.inputField}>
@@ -161,3 +176,5 @@ export default function AddClient() {
 		</KeyboardAvoidingView>
 	);
 }
+
+export default AddClient;

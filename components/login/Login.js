@@ -27,7 +27,7 @@ export default function Login() {
 			signInWithEmailAndPassword(auth, email, password)
 				.then(creds => {
 					console.log('Signed in');
-					navigation.navigate('Home');
+					navigation.navigate('Home', {id: auth.currentUser.getIdToken()});
 				})
 				.catch(error => alert(error.message));
 		} catch (error) {
