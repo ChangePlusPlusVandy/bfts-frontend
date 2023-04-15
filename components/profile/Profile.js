@@ -4,6 +4,7 @@ import AddClient from '../addClient/AddClient';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 import ProfileCard from './ProfileCard';
+import { BFTS_BLUE, BFTS_WHITE } from '../../constants';
 
 const profiles = [
 	{
@@ -43,14 +44,20 @@ const Profile = () => {
 			<View style={profileStyles.profileContainer}>
 				<Text style={{ fontFamily: 'Montserrat_700Bold', fontSize: 27 }}>Shivam Vohra</Text>
 				<Text style={{ fontFamily: 'Montserrat_400Regular', fontSize: 17 }}>Volunteer</Text>
+				<TouchableOpacity style={[profileStyles.editProfileBtn, { marginRight: 5 }]}>
+					<Text style={{ fontFamily: 'Montserrat_400Regular', color: BFTS_BLUE, fontSize: 14 }}>
+						Edit Profile
+					</Text>
+				</TouchableOpacity>
 			</View>
 			<View
 				style={{
 					width: '100%',
-					marginTop: 15,
+					marginTop: 5,
 					flexDirection: 'row',
 					alignContent: 'space-between',
 					justifyContent: 'center',
+					height: '8%',
 				}}>
 				<TouchableOpacity style={[profileStyles.editProfileBtn, { marginRight: 5 }]}>
 					<Text style={{ fontFamily: 'Montserrat_700Bold', color: 'black' }}>Edit Profile</Text>

@@ -1,12 +1,18 @@
 import React from 'react';
-import { Text, View, TouchableOpacity, Image } from 'react-native';
-import logo from '../../assets/logo.png';
+import { Text, View, TouchableOpacity, Image, ScrollView, SafeAreaView } from 'react-native';
+import logo from '../../assets/B_logo.png';
 import { BFTS_BLUE, BFTS_WHITE } from '../../constants';
 import landingStyles from './LandingStyles';
 import { useNavigation } from '@react-navigation/native';
+import EditProfile from '../profile/EditClientProfile';
+import { useState } from 'react';
+import EditVolunteerProfile from '../profile/EditVolunteerProfile';
+import CreatePost from '../post/CreatePost';
 
 export default function Landing() {
 	const navigation = useNavigation();
+
+	const [sumbitted, setSubmittedValue] = useState(false);
 
 	return (
 		<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: BFTS_WHITE }}>
