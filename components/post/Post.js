@@ -8,27 +8,29 @@ import Moment from 'moment';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export default function Post({ post }) {
-	const today = new Moment();
+	const date = post.createdAt;
+	const displayDate = new Date(date);
 
-	const day = today.format('M/DD/YY');
-	const time = today.format('h:mm a');
+	const postDay = displayDate.getDate();
+	const postMonth = displayDate.getMonth() + 1;
+
+	const time = displayDate.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
 
 	const PostHeader = ({ post }) => (
 		<View style={{ flexDirection: 'row', justifyContent: 'space-between', margin: 5, alignItems: 'center' }}>
 			<View style={{ flexDirection: 'row', alignItems: 'center' }}>
-				{/* <Image source={{ uri: post.profile_picture }} style={styles.profile_pic} /> */}
 				<Ionicons name="person-outline" size={30} color="blue" style={{ marginLeft: 11, marginTop: 2 }} />
-				<Text style={{ color: 'black', marginLeft: 5, fontWeight: '600' }}> {post.user} </Text>
+				<Text style={{ color: 'black', marginLeft: 5, fontWeight: '600' }}> {post.name} </Text>
 			</View>
 		</View>
 	);
 
 	const PostImage = ({ post }) => (
-		<View style={{ width: '100%', height: 150 }}>
-			<PostText text="Today has been a successful day  dasjkhdkjashdk dkhasjkdsa ddsa" />
+		<View style={{ width: '100%' }}>
+			<PostText text={post.text} />
 			<View style={postTextStyles.timeView}>
 				<Text style={{ color: 'grey', fontWeight: '300', fontSize: 15 }}>{time + ' - '}</Text>
-				<Text style={{ color: 'grey', fontWeight: '300', fontSize: 15 }}>{day}</Text>
+				<Text style={{ color: 'grey', fontWeight: '300', fontSize: 15 }}>{postMonth + '/' + postDay}</Text>
 			</View>
 		</View>
 	);

@@ -34,7 +34,7 @@ const infoStyles = StyleSheet.create({
 	},
 	infoText: {
 		fontSize: 20,
-		//fontFamily: "Montserrat_900Bold", TODO: Get this font working
+		// fontFamily: "Montserrat_900Bold",
 		color: BFTS_WHITE,
 		fontWeight: 'bold',
 	},

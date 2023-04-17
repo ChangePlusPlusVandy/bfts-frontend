@@ -41,7 +41,7 @@ export default function PostFooter({ post }) {
 			<Caption post={post} />
 
 			<TouchableOpacity style={{ marginLeft: 15, marginTop: 5 }}>
-				<Text style={{ color: 'grey' }}>Load {post.comments.length} comments...</Text>
+				<Text style={{ color: 'grey' }}>Load {post.replies.length} comments...</Text>
 			</TouchableOpacity>
 		</View>
 	);

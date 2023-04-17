@@ -19,6 +19,7 @@ import {
 import EditVolunteerProfile from './components/profile/EditVolunteerProfile';
 import EditClientProfile from './components/profile/EditClientProfile';
 import CreatePost from './components/post/CreatePost';
+import CreateResource from './components/resources/CreateResource';
 
 const Stack = createNativeStackNavigator();
 
@@ -91,6 +92,12 @@ export default function App() {
 					name="CreatePost"
 					title="CreatePost"
 					component={CreatePost}
+					options={{ headerShown: false, gestureEnabled: true }}
+				/>
+				<Stack.Screen
+					name="CreateResource"
+					title="CreateResource"
+					component={CreateResource}
 					options={{ headerShown: false, gestureEnabled: true }}
 				/>
 			</Stack.Navigator>

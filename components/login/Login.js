@@ -26,15 +26,7 @@ export default function Login() {
 			console.log('Trying to sign in');
 			await signInWithEmailAndPassword(auth, email, password);
 			const idToken = await auth.currentUser.getIdToken();
-			console.log(idToken);
 			navigation.navigate('Home');
-			// signInWithEmailAndPassword(auth, email, password)
-			// 	.then(creds => {
-			// 		console.log('Signed in');
-			// 		console.
-			// 		navigation.navigate('Home');
-			// 	})
-			// 	.catch(error => alert(error.message));
 		} catch (error) {
 			setError(error.message);
 		}

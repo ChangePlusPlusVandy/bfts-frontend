@@ -1,13 +1,72 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, ScrollView, Text, SafeAreaView } from 'react-native';
+import { StyleSheet, ScrollView, Text, SafeAreaView, RefreshControl } from 'react-native';
 import Post from '../post/Post';
+import { auth } from '../../firebase';
+import { useState, useEffect } from 'react';
+import React from 'react';
 
 export default function Community() {
+	const [token, setToken] = useState(null);
+	const [posts, setPosts] = useState([]);
+
+	const [refreshing, setRefreshing] = useState(false);
+	const [reloaded, setReloaded] = useState(false);
+
+	const onRefresh = React.useCallback(() => {
+		setRefreshing(true);
+		setTimeout(() => {
+			setRefreshing(false);
+			setReloaded(!reloaded);
+		}, 2000);
+	}, []);
+
+	auth.onAuthStateChanged(user => {
+		if (user) {
+			console.log('Getting token here');
+			user.getIdToken().then(tok => {
+				setToken(tok);
+			});
+		}
+	});
+
+	const requestOptions = {
+		method: 'GET',
+		headers: { 'Content-Type': 'application/json', bearer: token },
+	};
+
+	const fetchPosts = () => {
+		fetch('https://bfts-backend.herokuapp.com/posts/getAll', requestOptions)
+			.then(async response => {
+				const isJson = response.headers.get('content-type')?.includes('application/json');
+				const data = isJson && (await response.json());
+
+				if (!response.ok) {
+					const err = (data && data.message) || response.status;
+					return Promise.reject(err);
+				}
+
+				setPosts(
+					data.sort(function (a, b) {
+						if (new Date(b) > new Date(a)) {
+							return 1;
+						} else {
+							return -1;
+						}
+					})
+				);
+			})
+			.catch(error => {
+				console.log(error);
+			});
+	};
+
+	useEffect(fetchPosts, [token, refreshing]);
+
 	return (
 		<SafeAreaView style={styles.container}>
 			<StatusBar />
-			<ScrollView>
-				{POSTS.map((post, index) => (
+			<ScrollView refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
+				{posts.map((post, index) => (
 					<Post post={post} key={index} />
 				))}
 			</ScrollView>

@@ -10,7 +10,7 @@ export default function ProfileCard({ profile }) {
 		<TouchableOpacity
 			style={cardStyles.main}
 			onPress={() => {
-				navigation.navigate('EditClientProfile');
+				navigation.navigate('EditClientProfile', { client: profile });
 			}}>
 			<View>
 				<View style={cardStyles.nameView}>
