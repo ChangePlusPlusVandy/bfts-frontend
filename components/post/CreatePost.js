@@ -89,59 +89,67 @@ const CreatePost = () => {
 
 	return (
 		<ScrollView style={styles.container}>
-				<StatusBar />
+			<StatusBar />
+			<View
+				style={{
+					backgroundColor: 'white',
+					alignItems: 'center',
+					paddingTop: 10,
+					paddingBottom: 5,
+					marginTop: 12,
+					marginBottom: 12,
+				}}>
+				<Text style={{ fontSize: 30, fontFamily: 'Montserrat_500Medium' }}>Create a Post</Text>
+			</View>
+			<PostHeader />
+			<View></View>
+			<View style={{ width: '100%', height: 150, width: '100%', paddingLeft: 10 }}>
+				<TextInput
+					placeholder="What's happening?"
+					multiline={true}
+					onChangeText={txt => {
+						setText(txt);
+					}}
+					style={{ marginLeft: 15 }}>
+					{text}
+				</TextInput>
+				<View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline' }}>
+					<View style={postTextStyles.timeView}>
+						<Text style={{ color: 'grey', fontWeight: '300', fontSize: 15 }}>{time + ' - '}</Text>
+						<Text style={{ color: 'grey', fontWeight: '300', fontSize: 15 }}>{day}</Text>
+					</View>
+				</View>
 				<View
 					style={{
-						backgroundColor: 'white',
+						alignContent: 'center',
+						height: '100%',
 						alignItems: 'center',
-						paddingTop: 10,
-						paddingBottom: 5,
-						marginTop: 12,
-						marginBottom: 12,
+						width: '100%',
+						marginTop: 30,
+						zIndex: 1,
 					}}>
-					<Text style={{ fontSize: 30, fontFamily: 'Montserrat_500Medium' }}>Create a Post</Text>
-				</View>
-				<PostHeader />
-				<View></View>
-				<View style={{ width: '100%', height: 150, width: '100%', paddingLeft: 10 }}>
-					<TextInput
-						placeholder="What's happening?"
-						multiline={true}
-						onChangeText={txt => {
-							setText(txt);
+					<TouchableOpacity
+						style={{
+							width: '50%',
+							height: '30%',
+							backgroundColor: BFTS_BLUE,
+							borderRadius: 15,
+							alignItems: 'center',
+							justifyContent: 'center',
 						}}
-						style={{ marginLeft: 15 }}>
-						{text}
-					</TextInput>
-					<View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline' }}>
-						<View style={postTextStyles.timeView}>
-							<Text style={{ color: 'grey', fontWeight: '300', fontSize: 15 }}>{time + ' - '}</Text>
-							<Text style={{ color: 'grey', fontWeight: '300', fontSize: 15 }}>{day}</Text>
-						</View>
-					</View>
-					<View style={{alignContent: 'center', height: "100%", alignItems: 'center', width: "100%", marginTop: 30, zIndex: 1}}>
-						<TouchableOpacity
+						onPress={() => handleSubmit()}>
+						<Text
 							style={{
-								width: '50%',
-								height: '30%',
-								backgroundColor: BFTS_BLUE,
-								borderRadius: 15,
-								alignItems: 'center',
-								justifyContent: 'center',
-							}}
-							onPress={() => handleSubmit()}>
-							<Text
-								style={{
-									fontSize: 15,
-									color: BFTS_WHITE,
-									fontWeight: 'bold',
-									fontFamily: 'Montserrat_700Bold',
-								}}>
-								Post
-							</Text>
-						</TouchableOpacity>
-					</View>
+								fontSize: 15,
+								color: BFTS_WHITE,
+								fontWeight: 'bold',
+								fontFamily: 'Montserrat_700Bold',
+							}}>
+							Post
+						</Text>
+					</TouchableOpacity>
 				</View>
+			</View>
 		</ScrollView>
 	);
 };

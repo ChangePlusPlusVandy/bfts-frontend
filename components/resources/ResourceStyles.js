@@ -5,7 +5,7 @@ const resourceStyles = StyleSheet.create({
 	container: {
 		backgroundColor: 'white',
 		width: '100%',
-		height: '87%'
+		height: '87%',
 	},
 	inputContainer: {
 		flex: 1,
@@ -43,7 +43,7 @@ const resourceStyles = StyleSheet.create({
 		backgroundColor: BFTS_BLUE,
 		width: 30,
 		height: 30,
-		marginLeft: "2%",
+		marginLeft: '2%',
 		marginTop: 5,
 		borderRadius: 15,
 	},

@@ -26,7 +26,7 @@ export default function Login() {
 			console.log('Trying to sign in');
 			await signInWithEmailAndPassword(auth, email, password);
 			const idToken = await auth.currentUser.getIdToken();
-			navigation.navigate("Home");
+			navigation.navigate('Home');
 		} catch (error) {
 			setError(error.message);
 		}

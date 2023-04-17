@@ -8,16 +8,13 @@ import Moment from 'moment';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export default function Post({ post }) {
-
 	const date = post.createdAt;
 	const displayDate = new Date(date);
 
 	const postDay = displayDate.getDate();
 	const postMonth = displayDate.getMonth() + 1;
 
-	const time = displayDate.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true});
-
-
+	const time = displayDate.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
 
 	const PostHeader = ({ post }) => (
 		<View style={{ flexDirection: 'row', justifyContent: 'space-between', margin: 5, alignItems: 'center' }}>
@@ -32,8 +29,8 @@ export default function Post({ post }) {
 		<View style={{ width: '100%' }}>
 			<PostText text={post.text} />
 			<View style={postTextStyles.timeView}>
-				<Text style={{ color: 'grey', fontWeight: '300', fontSize: 15 }}>{time + " - "}</Text>
-				<Text style={{ color: 'grey', fontWeight: '300', fontSize: 15 }}>{postMonth + "/" + postDay}</Text>
+				<Text style={{ color: 'grey', fontWeight: '300', fontSize: 15 }}>{time + ' - '}</Text>
+				<Text style={{ color: 'grey', fontWeight: '300', fontSize: 15 }}>{postMonth + '/' + postDay}</Text>
 			</View>
 		</View>
 	);
