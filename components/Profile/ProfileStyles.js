@@ -35,9 +35,17 @@ const profileStyles = StyleSheet.create({
 		marginTop: 10,
 		width: '150%',
 		alignItems: 'center',
+		justifyContent: 'center',
 		borderBottomWidth: 1,
 		borderColor: 'gray',
+		flexDirection: 'row'
 	},
+	refreshButton: {
+		width: 30,
+		height: 25,
+		backgroundColor: BFTS_BLUE,
+		borderRadius: 20,
+	}
 });
 
 export default profileStyles;

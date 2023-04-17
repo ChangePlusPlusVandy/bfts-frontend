@@ -8,7 +8,7 @@ export default function ProfileCard({ profile }) {
 	const navigation = useNavigation();
 
 	return (
-		<TouchableOpacity style={cardStyles.main} onPress={() => {navigation.navigate("EditClientProfile")}}>
+		<TouchableOpacity style={cardStyles.main} onPress={() => {navigation.navigate("EditClientProfile", {client: profile})}}>
 			<View>
 				<View style={cardStyles.nameView}>
 					<Text>

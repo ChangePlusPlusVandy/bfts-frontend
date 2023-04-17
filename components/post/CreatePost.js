@@ -83,7 +83,6 @@ const CreatePost = () => {
 
 	return (
 		<ScrollView style={styles.container}>
-			<TouchableWithoutFeedback>
 				<StatusBar />
 				<View style={{ backgroundColor: 'white', alignItems: 'center', paddingTop: 10, paddingBottom: 5, marginTop: 12, marginBottom: 12 }}>
 					<Text style={{ fontSize: 30, fontFamily: 'Montserrat_500Medium' }}>Create a Post</Text>
@@ -107,7 +106,7 @@ const CreatePost = () => {
 							<Text style={{ color: 'grey', fontWeight: '300', fontSize: 15 }}>{day}</Text>
 						</View>
 					</View>
-					<View style={{alignContent: 'center', height: "100%", alignItems: 'center', width: "100%", marginTop: 30}}>
+					<View style={{alignContent: 'center', height: "100%", alignItems: 'center', width: "100%", marginTop: 30, zIndex: 1}}>
 						<TouchableOpacity
 							style={{
 								width: "50%",
@@ -130,7 +129,6 @@ const CreatePost = () => {
 						</TouchableOpacity>
 					</View>
 				</View>
-			</TouchableWithoutFeedback>
 		</ScrollView>
 	);
 };

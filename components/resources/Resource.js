@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import resourceStyles from './ResourceStyles';
 import ResourceInfo from './ResourceInfo';
@@ -12,7 +11,7 @@ const Resource = ({ resource }) => {
 			</View>
 			<View style={resourceStyles.bottomInfoContainer}>
 				<ResourceInfo icon="search" info={resource.website} clickable={true} />
-				<ResourceInfo icon="person-outline" info={resource.contactName} clickable={false} />
+				<ResourceInfo icon="location-outline" info={resource.address} clickable={false} />
 				<ResourceInfo icon="call-outline" info={resource.contactNumber} clickable={true} />
 			</View>
 		</View>
