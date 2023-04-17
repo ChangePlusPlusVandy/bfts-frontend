@@ -52,8 +52,6 @@ export default function Community() {
 					return -1;
 				}
 			})));
-
-			console.log(posts);
 		}).catch((error) => {
 			console.log(error);
 		})
