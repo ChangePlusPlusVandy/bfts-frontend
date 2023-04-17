@@ -28,7 +28,7 @@ export default function Register() {
 		try {
 			await createUserWithEmailAndPassword(auth, email, passwordOne);
 			const idToken = await auth.currentUser.getIdToken();
-			navigation.navigate('Info', {token: idToken, id: auth.currentUser.uid, email: email});
+			navigation.navigate('Info', { token: idToken, id: auth.currentUser.uid, email: email });
 		} catch (error) {
 			alert('Failed to create user.');
 		}

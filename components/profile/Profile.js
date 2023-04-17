@@ -20,28 +20,26 @@ const Profile = () => {
 
 	const [change, setChange] = useState(false);
 
-
 	const getToken = async () => {
-		const token = auth.onAuthStateChanged((user) => {
+		const token = auth.onAuthStateChanged(user => {
 			if (user) {
 				user.getIdToken().then((tok) => { setToken(tok); setId(user.uid); return tok;});
 			}
 		});
 		return await token;
-	}
+	};
 
 	getToken();
-
 
 	const requestOptions = {
 		method: "GET",
 		headers: {"Content-Type": "application/json", "bearer": token}
 	}
-	
 	const fetchClients = () => {
-		fetch("https://bfts-backend.herokuapp.com/clients/getAll", requestOptions).then(async (response) => {
-			const isJson = response.headers.get("content-type")?.includes("application/json");
-			const data = isJson && (await response.json());
+		fetch('https://bfts-backend.herokuapp.com/clients/getAll', requestOptions)
+			.then(async response => {
+				const isJson = response.headers.get('content-type')?.includes('application/json');
+				const data = isJson && (await response.json());
 
 			if (!response.ok) {
 				const err = (data && data.message) || response.status;
@@ -53,7 +51,7 @@ const Profile = () => {
 			console.log(error);
 		})
 	}
-
+  
 	const getVolunteerInfo = () => {
 		fetch(`https://bfts-backend.herokuapp.com/volunteers/getById/${id}`, requestOptions).then(async (response) => {
 			const isJson = response.headers.get("content-type")?.includes("application/json");
@@ -80,7 +78,9 @@ const Profile = () => {
 			<View style={profileStyles.profileContainer}>
 				<Text style={{ fontFamily: 'Montserrat_700Bold', fontSize: 27 }}>{volunteer.name}</Text>
 				<Text style={{ fontFamily: 'Montserrat_400Regular', fontSize: 17 }}>Volunteer</Text>
-				<TouchableOpacity onPress={() => navigation.navigate("EditVolProfile")} style={[profileStyles.editProfileBtn, { marginRight: 5 }]}>
+				<TouchableOpacity
+					onPress={() => navigation.navigate('EditVolProfile')}
+					style={[profileStyles.editProfileBtn, { marginRight: 5 }]}>
 					<Text style={{ fontFamily: 'Montserrat_400Regular', color: BFTS_BLUE, fontSize: 14 }}>
 						Edit Profile
 					</Text>

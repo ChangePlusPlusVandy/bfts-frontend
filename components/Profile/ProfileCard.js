@@ -4,7 +4,6 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 
 export default function ProfileCard({ profile }) {
-
 	const navigation = useNavigation();
 
 	return (
