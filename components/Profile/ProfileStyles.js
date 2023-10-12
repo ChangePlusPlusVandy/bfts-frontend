@@ -11,7 +11,7 @@ const profileStyles = StyleSheet.create({
 	editProfileBtn: {
 		backgroundColor: BFTS_WHITE,
 		borderRadius: 5,
-		width: '80%',
+		width: '40%',
 		alignContent: 'center',
 		alignItems: 'center',
 		justifyContent: 'center',
@@ -21,7 +21,7 @@ const profileStyles = StyleSheet.create({
 		marginTop: 5,
 	},
 	addClientBtn: {
-		backgroundColor: BFTS_BLUE,
+		backgroundColor: BFTS_WHITE,
 		borderRadius: 10,
 		width: '85%',
 		alignContent: 'center',
@@ -29,7 +29,7 @@ const profileStyles = StyleSheet.create({
 		justifyContent: 'center',
 		padding: 5,
 		borderColor: BFTS_BLUE,
-		borderWidth: 2,
+		borderWidth: 1,
 	},
 	clientHeader: {
 		marginTop: 10,

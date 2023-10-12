@@ -5,7 +5,7 @@ import { auth } from '../../firebase';
 import { useState, useEffect } from 'react';
 import React from 'react';
 
-export default function Community() {
+export default function Community({navigation}) {
 
 	const [token, setToken] = useState(null);
 	const [posts, setPosts] = useState([]);
@@ -65,7 +65,7 @@ export default function Community() {
 			<StatusBar />
 			<ScrollView refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
 				{posts.map((post, index) => (
-					<Post post={post} key={index} />
+					<Post navigation={navigation} post={post} key={index} />
 				))}
 			</ScrollView>
 		</SafeAreaView>

@@ -80,12 +80,10 @@ const ResourceDisplay = () => {
 				placeholder='Search Resources'
 					style={{
 						width: '80%',
-						height: 10,
 						padding: 20,
 						borderColor: 'gray',
 						borderRadius: 4,
 						borderWidth: 1,
-						marginTop: 9,
 						color: 'black',
 						marginRight: "5%"
 					}}

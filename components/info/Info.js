@@ -19,10 +19,6 @@ const Info = ({ navigation, route }) => {
 	const token = route.params.token;
 	const emailAdd = route.params.email;
 
-	console.log(id);
-	console.log(token);
-	console.log(emailAdd);
-
 	const [error, setError] = useState('');
 	const [loading, setLoading] = useState(false);
 
@@ -44,6 +40,7 @@ const Info = ({ navigation, route }) => {
 			startdate: Date.now(),
 			startlocation: selectedBurrough,
 			background: background,
+			gender: selectedGender
 		}),
 	};
 

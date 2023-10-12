@@ -7,7 +7,7 @@ import postTextStyles from './PostTextStyles';
 import Moment from 'moment';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-export default function Post({ post }) {
+export default function Post({navigation, post }) {
 
 	const date = post.createdAt;
 	const displayDate = new Date(date);
@@ -16,8 +16,6 @@ export default function Post({ post }) {
 	const postMonth = displayDate.getMonth() + 1;
 
 	const time = displayDate.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true});
-
-
 
 	const PostHeader = ({ post }) => (
 		<View style={{ flexDirection: 'row', justifyContent: 'space-between', margin: 5, alignItems: 'center' }}>

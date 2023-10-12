@@ -76,15 +76,24 @@ const Profile = () => {
 				<Ionicons name="person-outline" size={50} color="black" />
 			</View> */}
 			<View style={profileStyles.profileContainer}>
-				<Text style={{ fontFamily: 'Montserrat_700Bold', fontSize: 27 }}>{volunteer.name}</Text>
+				<View style={{flexDirection: 'row'}}>
+					<Text style={{ fontFamily: 'Montserrat_700Bold', fontSize: 27 }}>{volunteer.name}</Text>
+				</View>
 				<Text style={{ fontFamily: 'Montserrat_400Regular', fontSize: 17 }}>Volunteer</Text>
-				<TouchableOpacity
-					onPress={() => navigation.navigate('EditVolProfile')}
-					style={[profileStyles.editProfileBtn, { marginRight: 5 }]}>
-					<Text style={{ fontFamily: 'Montserrat_400Regular', color: BFTS_BLUE, fontSize: 14 }}>
-						Edit Profile
-					</Text>
-				</TouchableOpacity>
+				<View style={{width: "100%", flexDirection: 'row'}}>
+					<TouchableOpacity
+						onPress={() => navigation.navigate('EditVolProfile', {volunteer: volunteer, change: setChange})}
+						style={[profileStyles.editProfileBtn, { marginRight: 5 }]}>
+						<Text style={{ fontFamily: 'Montserrat_400Regular', color: BFTS_BLUE, fontSize: 14 }}>
+							Edit Profile
+						</Text>
+					</TouchableOpacity>
+					<TouchableOpacity style={[profileStyles.refreshButton, {marginTop: 6}]} onPress={() => setChange(!change)}>
+						<View style={{alignItems: 'center', justifyContent: 'center', alignContent: 'center', paddingTop: 3}}>
+							<Ionicons name="refresh" size={15} color="white" />
+						</View>
+					</TouchableOpacity>
+				</View>
 			</View>
 			<View
 				style={{
@@ -97,7 +106,7 @@ const Profile = () => {
 				}}>
 				<TouchableOpacity
 					onPress={() => navigation.navigate('AddClient')}
-					style={[profileStyles.editProfileBtn, { marginLeft: 5 }]}>
+					style={[profileStyles.addClientBtn, { marginLeft: 5 }]}>
 					<Text style={{ fontFamily: 'Montserrat_700Bold', color: 'black' }}>Add Client</Text>
 				</TouchableOpacity>
 			</View>
