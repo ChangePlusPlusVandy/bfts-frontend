@@ -9,13 +9,12 @@ import { BFTS_BLUE, BFTS_WHITE } from '../../constants';
 import { useState, useEffect } from 'react';
 import { auth } from '../../firebase';
 
-
 const Profile = () => {
 	const navigation = useNavigation();
 
 	const [clients, setClients] = useState([]);
 	const [token, setToken] = useState(null);
-	const [id, setId] = useState("");
+	const [id, setId] = useState('');
 	const [volunteer, setVolunteer] = useState({});
 
 	const [change, setChange] = useState(false);
@@ -23,7 +22,11 @@ const Profile = () => {
 	const getToken = async () => {
 		const token = auth.onAuthStateChanged(user => {
 			if (user) {
-				user.getIdToken().then((tok) => { setToken(tok); setId(user.uid); return tok;});
+				user.getIdToken().then(tok => {
+					setToken(tok);
+					setId(user.uid);
+					return tok;
+				});
 			}
 		});
 		return await token;
@@ -32,40 +35,43 @@ const Profile = () => {
 	getToken();
 
 	const requestOptions = {
-		method: "GET",
-		headers: {"Content-Type": "application/json", "bearer": token}
-	}
+		method: 'GET',
+		headers: { 'Content-Type': 'application/json', bearer: token },
+	};
 	const fetchClients = () => {
 		fetch('https://bfts-backend.herokuapp.com/clients/getAll', requestOptions)
 			.then(async response => {
 				const isJson = response.headers.get('content-type')?.includes('application/json');
 				const data = isJson && (await response.json());
 
-			if (!response.ok) {
-				const err = (data && data.message) || response.status;
-				return Promise.reject(err);
-			}
-			
-			setClients(data);
-		}).catch((error) => {
-			console.log(error);
-		})
-	}
-  
-	const getVolunteerInfo = () => {
-		fetch(`https://bfts-backend.herokuapp.com/volunteers/getById/${id}`, requestOptions).then(async (response) => {
-			const isJson = response.headers.get("content-type")?.includes("application/json");
-			const data = isJson && (await response.json());
+				if (!response.ok) {
+					const err = (data && data.message) || response.status;
+					return Promise.reject(err);
+				}
 
-			if (!response.ok) {
-				const err = (data && data.message) || response.status;
-				return Promise.reject(err);
-			}
-			setVolunteer(data);
-		}).catch((error) => {
-			console.log(error);
-		})
-	}
+				setClients(data);
+			})
+			.catch(error => {
+				console.log(error);
+			});
+	};
+
+	const getVolunteerInfo = () => {
+		fetch(`https://bfts-backend.herokuapp.com/volunteers/getById/${id}`, requestOptions)
+			.then(async response => {
+				const isJson = response.headers.get('content-type')?.includes('application/json');
+				const data = isJson && (await response.json());
+
+				if (!response.ok) {
+					const err = (data && data.message) || response.status;
+					return Promise.reject(err);
+				}
+				setVolunteer(data);
+			})
+			.catch(error => {
+				console.log(error);
+			});
+	};
 
 	useEffect(fetchClients, [token, change]);
 	useEffect(getVolunteerInfo, [id, change]);
@@ -117,7 +123,13 @@ const Profile = () => {
 						Clients
 					</Text>
 					<TouchableOpacity style={profileStyles.refreshButton} onPress={() => setChange(!change)}>
-						<View style={{alignItems: 'center', justifyContent: 'center', alignContent: 'center', paddingTop: 3}}>
+						<View
+							style={{
+								alignItems: 'center',
+								justifyContent: 'center',
+								alignContent: 'center',
+								paddingTop: 3,
+							}}>
 							<Ionicons name="refresh" size={15} color="white" />
 						</View>
 					</TouchableOpacity>

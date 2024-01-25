@@ -38,14 +38,14 @@ const profileStyles = StyleSheet.create({
 		justifyContent: 'center',
 		borderBottomWidth: 1,
 		borderColor: 'gray',
-		flexDirection: 'row'
+		flexDirection: 'row',
 	},
 	refreshButton: {
 		width: 30,
 		height: 25,
 		backgroundColor: BFTS_BLUE,
 		borderRadius: 20,
-	}
+	},
 });
 
 export default profileStyles;

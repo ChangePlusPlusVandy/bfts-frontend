@@ -30,8 +30,8 @@ export default function Post({navigation, post }) {
 		<View style={{ width: '100%' }}>
 			<PostText text={post.text} />
 			<View style={postTextStyles.timeView}>
-				<Text style={{ color: 'grey', fontWeight: '300', fontSize: 15 }}>{time + " - "}</Text>
-				<Text style={{ color: 'grey', fontWeight: '300', fontSize: 15 }}>{postMonth + "/" + postDay}</Text>
+				<Text style={{ color: 'grey', fontWeight: '300', fontSize: 15 }}>{time + ' - '}</Text>
+				<Text style={{ color: 'grey', fontWeight: '300', fontSize: 15 }}>{postMonth + '/' + postDay}</Text>
 			</View>
 		</View>
 	);

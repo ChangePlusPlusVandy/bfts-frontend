@@ -13,52 +13,55 @@ export default function Community({navigation}) {
 	const [refreshing, setRefreshing] = useState(false);
 	const [reloaded, setReloaded] = useState(false);
 
-	const onRefresh = 
-		React.useCallback(() => {
-			setRefreshing(true);
-			setTimeout(() => {
-				setRefreshing(false);
-				setReloaded(!reloaded);
-			}, 2000);
-		}, [])
+	const onRefresh = React.useCallback(() => {
+		setRefreshing(true);
+		setTimeout(() => {
+			setRefreshing(false);
+			setReloaded(!reloaded);
+		}, 2000);
+	}, []);
 
-	auth.onAuthStateChanged((user) => {
+	auth.onAuthStateChanged(user => {
 		if (user) {
-			console.log("Getting token here")
-			user.getIdToken().then((tok) => { setToken(tok);});
+			console.log('Getting token here');
+			user.getIdToken().then(tok => {
+				setToken(tok);
+			});
 		}
 	});
 
 	const requestOptions = {
-		method: "GET",
-		headers: {"Content-Type": "application/json", "bearer": token}
-	}
+		method: 'GET',
+		headers: { 'Content-Type': 'application/json', bearer: token },
+	};
 
 	const fetchPosts = () => {
-		fetch("https://bfts-backend.herokuapp.com/posts/getAll", requestOptions).then(async (response) => {
-			const isJson = response.headers.get("content-type")?.includes("application/json");
-			const data = isJson && (await response.json());
+		fetch('https://bfts-backend.herokuapp.com/posts/getAll', requestOptions)
+			.then(async response => {
+				const isJson = response.headers.get('content-type')?.includes('application/json');
+				const data = isJson && (await response.json());
 
-			if (!response.ok) {
-				const err = (data && data.message) || response.status;
-				return Promise.reject(err);
-			}
-
-
-			setPosts(data.sort((function (a, b) {
-				if (new Date(b) > new Date(a)) {
-					return 1;
-				} else {
-					return -1;
+				if (!response.ok) {
+					const err = (data && data.message) || response.status;
+					return Promise.reject(err);
 				}
-			})));
-		}).catch((error) => {
-			console.log(error);
-		})
-	}
+
+				setPosts(
+					data.sort(function (a, b) {
+						if (new Date(b) > new Date(a)) {
+							return 1;
+						} else {
+							return -1;
+						}
+					})
+				);
+			})
+			.catch(error => {
+				console.log(error);
+			});
+	};
 
 	useEffect(fetchPosts, [token, refreshing]);
-
 
 	return (
 		<SafeAreaView style={styles.container}>
